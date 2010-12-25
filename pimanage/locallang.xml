@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_casreservation_pimanage&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="list_mode_1">Mode 1</label>
+			<label index="list_mode_2">Mode 2</label>
+			<label index="list_mode_3">Mode 3</label>
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+			
+			<!-- pimanage-->
+			<label index="send_admin_mail">Send notification e-mails and print bills</label>
+			<label index="display_stats">Display statistics</label>
+			<label index="display_fare_error">To display fares please select a room in the above menu.</label>
+			<label index="user">User</label>
+			<label index="all_users">All users</label>
+			<label index="all_demands">All demands</label>
+			<label index="demands0">Cancelled demands</label>
+			<label index="demands1">Pending demands</label>
+			<label index="demands2">Accepted demands</label>
+			<label index="demands3">Billed demands</label>
+			<label index="demands4">Paid demands</label>
+			<label index="no_reservation_found">No reservation found</label>
+			<label index="room">Room</label>
+			<label index="label">Label</label>
+			<label index="reservation">Reservation</label>
+			<label index="demand">Demand</label>
+			<label index="bill">Bill</label>
+			<label index="payment">Payment</label>
+			<label index="note">Note</label>
+			<label index="date">Date</label>
+			<label index="time">Temps</label>
+			<label index="period">Period</label>
+			<label index="material">Material</label>
+			<label index="paid">Paid</label>
+			<label index="action_accept">Accept</label>
+			<label index="action_cancel">Cancel</label>
+			<label index="action_bill">Bill</label>
+			<label index="action_pay">Mark as paid</label>
+			<label index="submit_change_admin">Apply changes</label>
+			<label index="submit_change_user">Cancel reservations</label>
+			<label index="accepted_demands"> accepted demand(s)</label>
+			<label index="cancelled_demands"> canceled demand(s)</label>
+			<label index="billed_demands"> billed demand(s)</label>
+			<label index="paid_demands"> demand(s) marked as paid</label>
+			<label index="code_is">The code for this period is </label>
+
+			<label index="error_paid">Error, only billed demands can be marked as paid.</label>
+			<label index="error_conflict">Error, time conflict on executed demand.</label>
+			<label index="error_status">Err0r, only pending demands can be marked canceled.</label>
+
+			<label index="mail_sender_name">CAS reservations</label>
+			<label index="mail_sender_email">no-reply@cas-moleson.ch</label>
+			<label index="mail_subject">CAS reservations </label>
+			<label index="mail_sent_to">One e-mail sent to </label>
+			<label index="mail_not_sent">Error while sending e-mail to </label>
+			<label index="filter_past_label">Display past reservations as well</label>
+			<label index="title_filter">Filter reservations</label>
+			<label index="title_fare">Fare</label>
+		</languageKey>
+
+		<languageKey index="fr" type="array">
+			<label index="list_mode_1">Mode 1</label>
+			<label index="list_mode_2">Mode 2</label>
+			<label index="list_mode_3">Mode 3</label>
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+			
+			<!-- pimanage-->
+			<label index="send_admin_mail">Envoyer les E-mails de confirmation/refus et les factures</label>
+			<label index="display_stats">Afficher les statistiques</label>
+			<label index="display_fare_error">Pour afficher les tarifs, veuillez sélectionner une salle dans le menu ci-dessus.</label>
+			<label index="user">Utilisateur</label>
+			<label index="all_users">Tous les utilisateurs</label>
+			<label index="all_demands">Toutes les demandes</label>
+			<label index="demands0">Demandes annulées</label>
+			<label index="demands1">Demandes en attente</label>
+			<label index="demands2">Demandes acceptées</label>
+			<label index="demands3">Demandes facturées</label>
+			<label index="demands4">Demandes payées</label>
+			<label index="no_reservation_found">Pas de réservation trouvée</label>
+			<label index="room">Salle</label>
+			<label index="label">Libellé</label>
+			<label index="reservation">Réservation</label>
+			<label index="demand">Demande</label>
+			<label index="bill">Facture</label>
+			<label index="payment">Paiement</label>
+			<label index="note">Note</label>
+			<label index="date">Date</label>
+			<label index="time">Temps</label>
+			<label index="period">Période</label>
+			<label index="material">Matériel</label>
+			<label index="paid">Payé</label>
+			<label index="action_accept">Accepter</label>
+			<label index="action_cancel">Annuler</label>
+			<label index="action_bill">Facturer</label>
+			<label index="action_pay">Marquer comme payé</label>
+			<label index="submit_change_admin">Appliquer les changements</label>
+			<label index="submit_change_user">Annuler les réservations</label>
+			<label index="accepted_demands"> demande(s) acceptée(s)</label>
+			<label index="cancelled_demands"> demande(s) annulée(s)</label>
+			<label index="billed_demands"> demande(s) facturée(s)</label>
+			<label index="paid_demands"> demande(s) marquée(s) comme payée(s)</label>
+			<label index="code_is">Le code pour cette période est </label>
+
+			<label index="error_paid">Erreur, seules les demandes au statut facturé peuvent être marquées comme payées.</label>
+			<label index="error_conflict">Erreur, conflit de date sur une des demandes executées.</label>
+			<label index="error_status">Erreur, seules les périodes marquées \"En attente\" peuvent être annulées. En cas de problème, veuillez contacter le responsable des réservations.</label>
+
+			<label index="mail_sender_name">CAS réservations</label>
+			<label index="mail_sender_email">no-reply@cas-moleson.ch</label>
+			<label index="mail_subject">CAS réservations </label>
+			<label index="mail_sent_to">Un e-mail envoyé à </label>
+			<label index="mail_not_sent">Erreur lors de l'envoi de l'e-mail à </label>
+			<label index="filter_past_label">Afficher les réservations passées également</label>
+			<label index="title_filter">Filtrer les réservations</label>
+			<label index="title_fare">Tarifs</label>
+		</languageKey>
+
+	</data>
+</T3locallang>

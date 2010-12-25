@@ -1,0 +1,148 @@
+#Setup
+
+
+plugin.tx_casreservation_pidisplay = USER_INT
+plugin.tx_casreservation_pibook = USER_INT
+plugin.tx_casreservation_pimanage = USER_INT
+
+plugin.tx_casreservation_pidisplay.templateFile = EXT:cas_reservation/pidisplay/template_display.html
+plugin.tx_casreservation_pibook.templateFile = EXT:cas_reservation/pibook/template_book.html
+plugin.tx_casreservation_pimanage.templateFile = EXT:cas_reservation/pimanage/template_manage.html
+
+
+plugin.tx_casreservation_pidisplay {
+
+### Default CSS styles for the file_list standard template: EXT:file_list/Resources/Private/Templates/template_pidisplay.html
+	_CSS_DEFAULT_STYLE (
+
+#week_view table{
+	padding:0px;
+	margin:0px;
+	border:#eec400;
+	border-width:1px;
+	border-style:solid;
+	background-color:#000000;
+	color:#ffffff;
+	text-align:center;
+	vertical-align:middle;
+}
+#week_view td{
+	width:80px;
+	height:60px;
+	font-size:80%;
+	padding:0px;
+	margin:0px;
+	text-align:center;
+	vertical-align:middle;
+	border: #666666 solid 1px;
+}
+
+#booking table{
+	background:#000000;
+	color:#ffffff;
+	border:#ecc400 solid 1px;
+}
+
+#form_data table{
+        font-size:100%;
+        background-color:#000000;
+		color:#FFFFFF;
+		border:#ecc400 solid 1px;
+}
+#form_data h2{
+        font-size:100%;
+        color:#FFFFFF;
+}
+#help {
+	color:#FFFFFF;
+        font-size:70%;
+        background-color:#0033FF;
+}
+
+.free{
+	background-color:#1bf91b;
+	color:#000000;
+}
+.pre-reserv{
+	background-color:#FF8040;
+	color:#000000;
+}
+.occupied{
+	background-color:#29a7d2;
+	color:#000000;
+}
+.uni{
+	background-color:#CC66CC;
+	color:#000000;
+}
+.abo{
+	background-color:#ffcc33;
+	color:#000000;
+}
+.special_gr{
+	background-color:#29a7d2;
+	color:#000000;
+}
+
+.conflict{
+	text-align:center;
+	background-color:#FF0000;
+	font-size:70%;
+}
+.header{
+	text-align:center;
+	font-size:90%;
+}
+.line0{
+	text-align:center;
+	background-color:#ffff99;
+	font-size:90%;
+}
+.line1{
+	text-align:center;
+	background-color:#ffcc00;
+	font-size:90%;
+}
+
+.stat0{
+	color:#ff0000;
+}
+.stat1{
+	color:#FF8040;
+}
+.stat2{
+	color:#00FF00;
+}
+.stat3{
+	color:#ffff00;
+}
+.stat4{
+	color:#0000cc;
+}
+.stat5{
+	color:#ffffff;
+}
+.statb0{
+	background-color:#ff0000;
+}
+.statb1{
+	background-color:#FF8040;
+}
+.statb2{
+	background-color:#00FF00;
+}
+.statb3{
+	background-color:#ffff00;
+}
+.statb4{
+	background-color:#0000cc;
+}
+
+
+
+.grayed{
+	color:#AFC7C7;
+}
+
+)
+}

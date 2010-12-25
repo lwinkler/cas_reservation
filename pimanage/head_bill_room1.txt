@@ -1,0 +1,19 @@
+<font face="Times New Roman" size="2" >
+<p align="right"><img src="typo3conf/ext/cas_reservation/images/entete-facture.png" width="250"/></p>
+Marie-Claude Ruffieux<br />
+Le Hubel<br />
+1783 Pensier<br />
+026 466 79 08<br />
+079 227 17 19<br />
+<table width="100%" face="Times New Roman" size="2" >
+
+<tr><td width="60%">&nbsp;</td><td><font face="Times New Roman" size="2" >###NAME###</font></td></tr> 
+<tr><td>&nbsp;</td><td><font face="Times New Roman" size="2" >###ADDRESS###</font></td></tr> 
+<tr><td>&nbsp;</td><td><font face="Times New Roman" size="2" >###CODE### ###LOCATION###</font></td></tr> 
+</table>
+<br />
+<br />
+<br />
+Concerne: <b><u>Location du mur d'escalade du CAS Moléson</u></b>
+<br />
+<br />

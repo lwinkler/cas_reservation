@@ -1,0 +1,42 @@
+<html>
+<!-- ###TEMPLATE### begin -->
+<span id="tx_casreservation_pibook"></span>
+<table align="center" width="100%"  class="texte">
+	<tr><td align="left">
+	<form action="###FORM_ACTION_SELECT_WEEK###" method="post" name="tx_casreservation_pibook_selectweek">###SELECT_ROOM###&nbsp;###SELECT_WEEK###</form>
+	</td><td>&nbsp;</td><td align="right">###DATE###</td></tr>
+</table>
+<br />
+<form action="###FORM_ACTION_BOOKING###" method="post" name="tx_casreservation_pibook_booking">
+
+###DIV_WEEKVIEW###
+
+	<br />
+	<div id="booking">
+	<table>
+		<tr>
+			<td width="200">###LABEL###</td>
+			<td><input type="text" name="tx_casreservation_pibook[label]" maxlength="50" size="50" /></td> <!-- value="###LABEL###"--> 
+		</tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>###MATERIAL###</tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>
+			<td>###NOTE###</td>
+			<td><textarea name="tx_casreservation_pibook[note]" cols="50" rows="3"></textarea></td>
+		</tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>
+			<input type="hidden" value="###WEEK###" name="tx_casreservation_pibook[week]" />
+			<input type="hidden" value="###ROOM###" name="tx_casreservation_pibook[room]" />
+			<td>&nbsp;</td><td><input type="submit" value="###MAKE_A_DEMAND###" name="tx_casreservation_pibook[submit_button]" /></td>
+		</tr>
+	</table>
+	</div>
+
+</form>
+
+<h2>###FARE###</h2>
+###DISPLAY_COSTS###
+<!-- ###TEMPLATE### end -->
+</html>

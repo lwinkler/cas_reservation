@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_casreservation_pibook&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="list_mode_1">Mode 1</label>
+			<label index="list_mode_2">Mode 2</label>
+			<label index="list_mode_3">Mode 3</label>
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+			
+			<label index ="note">Note</label>
+			<label index ="label">Group or activity</label>
+			<label index ="descr_label">The text of this field will be displayed on the occupation grid.</label>
+			<label index ="fare">Fare</label>
+			<label index ="make_a_demand">Make a demand</label>
+		</languageKey>
+		<languageKey index="fr" type="array">
+			<label index="list_mode_1">Mode 1</label>
+			<label index="list_mode_2">Mode 2</label>
+			<label index="list_mode_3">Mode 3</label>
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+			
+			<label index ="note">Remarque</label>
+			<label index ="label">Groupe ou activité</label>
+			<label index ="descr_label">Le texte de ce champ sera affiché sur la grille d'occupation.</label>
+			<label index ="fare">Tarif</label>
+			<label index ="make_a_demand">Faire une demande</label>
+		</languageKey>
+	</data>
+</T3locallang>

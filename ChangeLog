@@ -1,0 +1,14 @@
+2010-04-13 Laurent Winkler  <laurent.winkler@bluewin.ch>
+
+    Change sql creation queries to avoid warning
+    First commit on this repository : cas_reservation extension for typo3
+
+
+TODO : 
+refaire les query pour typo
+lors d'un page update, centrer sur la bonne ligne
+couleurs du site du cas, style, mise en page
+sélectionneur pour plusieurs salles
+sécuriser les inputs
+utilisateurs du cas
+gestion avec cache

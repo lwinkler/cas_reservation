@@ -1,0 +1,66 @@
+<T3DataStructure>
+ <meta>
+       <langDisable>1</langDisable>
+ </meta>
+ <sheets>
+  <sDEF>
+   <ROOT>
+    <TCEforms>
+     <sheetTitle>LLL:EXT:cas_reservation/locallang_db.xml:tt_content.pi_flexform.sheet_general</sheetTitle>
+    </TCEforms>
+    <type>array</type>
+     <el>
+     
+      <admin>
+       <TCEforms>
+        <exclude>1</exclude>
+        <label>LLL:EXT:cas_reservation/locallang_db.xml:tt_content.pi_flexform.admin</label>
+        <config>
+         <type>input</type>
+	 <size>30</size>
+         <show_thumbs>1</show_thumbs>
+        </config>
+       </TCEforms>
+      </admin>
+      
+      <room>
+       <TCEforms>
+        <exclude>1</exclude>
+        <label>LLL:EXT:cas_reservation/locallang_db.xml:tt_content.pi_flexform.room</label>
+        <config>
+         <type>input</type>
+	 <size>30</size>
+         <show_thumbs>1</show_thumbs>
+        </config>
+       </TCEforms>
+      </room>
+      
+      <send_email>
+       <TCEforms>
+        <exclude>1</exclude>
+        <label>LLL:EXT:cas_reservation/locallang_db.xml:tt_content.pi_flexform.send_email</label>
+        <config>
+         <type>input</type>
+	 <size>1</size>
+         <show_thumbs>1</show_thumbs>
+        </config>
+       </TCEforms>
+      </send_email>
+     
+      <email_admin>
+       <TCEforms>
+        <exclude>1</exclude>
+        <label>LLL:EXT:cas_reservation/locallang_db.xml:tt_content.pi_flexform.email_admin</label>
+        <config>
+         <type>input</type>
+	 <size>50</size>
+         <show_thumbs>1</show_thumbs>
+        </config>
+       </TCEforms>
+      </email_admin>
+      
+     </el>
+    </ROOT>
+   </sDEF>
+  </sheets>
+</T3DataStructure>

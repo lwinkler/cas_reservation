@@ -1,0 +1,79 @@
+<html>
+<!-- ###TEMPLATE### begin -->
+<!-- ###MANAGE### -->
+
+<span id="pimanage"></span>
+
+
+###MESSAGE###
+
+<div id="filter">
+<table width="100%">
+<tr><td width="50%">
+<form name="tx_casreservation_pimanage_form_filter" method="post" action="###FORM_FILTER_ACTION###">
+<h2>###TITLE_FILTER###</h2>
+###FILTER_PAST###
+<br/>
+###FILTER_ROOM###
+<br />
+
+###FILTER_STATUS###
+</form></td>
+<td>
+###DISPLAY_USER###
+</td></tr>
+</table>
+</div>
+<br />
+
+<form name="tx_casreservation_pimanage_form_change" method="post" action="###FORM_CHANGE_ACTION###">
+
+###RECORD_TABLE###
+
+###COMMANDS###
+</form>
+
+<h2>###TITLE_FARE###</h2>
+###DISPLAY_COSTS###
+<!-- ###MANAGE### -->
+
+
+<!-- ###STATS### -->
+
+<div id="filter">
+<table width="100%">
+<tr><td width="50%">
+<form name="tx_casreservation_pimanage_form_filter" method="get" action="###FORM_ACTION###">
+<h2>Filtrer</h2>
+<br />
+
+De juillet&nbsp;&nbsp;<input type="text" name="tx_casreservation_pimanage[start]" size="3" onchange="this.form.submit();" value="###START###" />&nbsp;&nbsp;&nbsp;
+à août ###END### <br/>
+<input type="checkbox" name="tx_casreservation_pimanage[detail]" onclick="this.form.submit();" ###DETAIL_CHECKED### />Afficher les détails <br />
+<input type="hidden" name="tx_casreservation_pimanage[stats]" value="on"/>
+
+</form></td>
+<td>
+<!-- <form name="tx_casreservation_pimanage_disp_user" method="post">
+###DISPLAY_USER###
+</form> -->
+</td></tr>
+</table>
+</div>
+
+<br />
+<form name="tx_casreservation_pimanage_form_change" method="post" action="stats-change.php">
+
+<h2>Graphiques pour l'année ###START###</h2>
+###PLOTS###
+
+</form>
+
+<h2>Statistiques mensuelles pour ###START###</h2>
+###SHOW_STATS###
+
+<!-- ###STATS### -->
+
+
+<!-- ###TEMPLATE### end -->
+</html>

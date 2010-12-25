@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_casreservation_pilib&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+		</languageKey>
+
+		<languageKey index="default" type="array">
+			<label index="month01">January</label>
+			<label index="month02">February</label>
+			<label index="month03">March</label>
+			<label index="month04">April</label>
+			<label index="month05">May</label>
+			<label index="month06">June</label>
+			<label index="month07">July</label>
+			<label index="month08">August</label>
+			<label index="month09">September</label>
+			<label index="month10">October</label>
+			<label index="month11">November</label>
+			<label index="month12">December</label>
+			<label index="month_short01">Jan</label>
+			<label index="month_short02">Feb</label>
+			<label index="month_short03">March</label>
+			<label index="month_short04">April</label>
+			<label index="month_short05">May</label>
+			<label index="month_short06">June</label>
+			<label index="month_short07">July</label>
+			<label index="month_short08">Aug</label>
+			<label index="month_short09">Sept</label>
+			<label index="month_short10">Oct</label>
+			<label index="month_short11">Nov</label>
+			<label index="month_short12">Dec</label>
+			<label index="weekday1">Monday</label>
+			<label index="weekday2">Tuesday</label>
+			<label index="weekday3">Wednesday</label>
+			<label index="weekday4">Thursday</label>
+			<label index="weekday5">Friday</label>
+			<label index="weekday6">Saturday</label>
+			<label index="weekday7">Sunday</label>
+			<label index="weekday_short1">Mon</label>
+			<label index="weekday_short2">Tue</label>
+			<label index="weekday_short3">Wed</label>
+			<label index="weekday_short4">Thu</label>
+			<label index="weekday_short5">Fri</label>
+			<label index="weekday_short6">Sat</label>
+			<label index="weekday_short7">Sun</label>
+			<label index="yes">Yes</label>
+			
+			<label index="login">Login</label>
+			<label index="name">Name</label>
+			<label index="address">Address</label>
+			<label index="phone">Phone</label>
+			<label index="e-mail">E-mail</label>
+			
+			<label index="week_of">Week of </label>
+			<label index="material0">Without material</label>
+			<label index="material1">With material</label>
+			<label index="time_periods"> time periods</label>
+			<label index="no_reservation_found">No reservation found</label>
+			<label index="format_times">%d h to %d h</label>
+			<label index="format_date">%4$s, %2$s %3$d, %1$d</label>
+			<label index="format_date_php">d.m.Y</label>
+			<label index="currency">$</label>
+		</languageKey>
+		<languageKey index="fr" type="array">
+			<label index="month01">janvier</label>
+			<label index="month02">février</label>
+			<label index="month03">mars</label>
+			<label index="month04">avril</label>
+			<label index="month05">mai</label>
+			<label index="month06">juin</label>
+			<label index="month07">juillet</label>
+			<label index="month08">août</label>
+			<label index="month09">septembre</label>
+			<label index="month10">octobre</label>
+			<label index="month11">novembre</label>
+			<label index="month12">décembre</label>
+			<label index="month_short01">Jan</label>
+			<label index="month_short02">Fev</label>
+			<label index="month_short03">Mars</label>
+			<label index="month_short04">Avril</label>
+			<label index="month_short05">Mai</label>
+			<label index="month_short06">Juin</label>
+			<label index="month_short07">Juil</label>
+			<label index="month_short08">Aout</label>
+			<label index="month_short09">Sept</label>
+			<label index="month_short10">Oct</label>
+			<label index="month_short11">Nov</label>
+			<label index="month_short12">Dec</label>
+			<label index="weekday1">Lundi</label>
+			<label index="weekday2">Mardi</label>
+			<label index="weekday3">Mercredi</label>
+			<label index="weekday4">Jeudi</label>
+			<label index="weekday5">Vendredi</label>
+			<label index="weekday6">Samedi</label>
+			<label index="weekday7">Dimanche</label>
+			<label index="weekday_short1">Lu</label>
+			<label index="weekday_short2">Ma</label>
+			<label index="weekday_short3">Me</label>
+			<label index="weekday_short4">Je</label>
+			<label index="weekday_short5">Ve</label>
+			<label index="weekday_short6">Sa</label>
+			<label index="weekday_short7">Di</label>
+			<label index="yes">Oui</label>
+			
+			<label index="login">Login</label>
+			<label index="name">Nom</label>
+			<label index="address">Adresse</label>
+			<label index="phone">Tel.</label>
+			<label index="e-mail">E-mail</label>
+			
+			<label index="week_of">Semaine du </label>
+			<label index="material0">Sans matériel</label>
+			<label index="material1">Avec matériel</label>
+			<label index="time_periods"> périodes</label>
+			<label index="no_reservation_found">Aucune réservation trouvée</label>
+			<label index="format_times">%d h à %d h</label>
+			<label index="format_date">%4$s, %3$d %2$s %1$d</label>
+			<label index="format_date_php">d.m.Y</label>
+			<label index="currency">Fr.</label>
+		</languageKey>
+
+	</data>
+</T3locallang>
