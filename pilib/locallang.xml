@@ -33,6 +33,7 @@
 			<label index="month_short10">Oct</label>
 			<label index="month_short11">Nov</label>
 			<label index="month_short12">Dec</label>
+			<label index="weekday0">Sunday</label>
 			<label index="weekday1">Monday</label>
 			<label index="weekday2">Tuesday</label>
 			<label index="weekday3">Wednesday</label>
@@ -90,6 +91,7 @@
 			<label index="month_short10">Oct</label>
 			<label index="month_short11">Nov</label>
 			<label index="month_short12">Dec</label>
+			<label index="weekday0">Dimanche</label>
 			<label index="weekday1">Lundi</label>
 			<label index="weekday2">Mardi</label>
 			<label index="weekday3">Mercredi</label>
@@ -118,7 +120,7 @@
 			<label index="time_periods"> périodes</label>
 			<label index="no_reservation_found">Aucune réservation trouvée</label>
 			<label index="format_times">%d h à %d h</label>
-			<label index="format_date">%4$s, %3$d %2$s %1$d</label>
+			<label index="format_date">%4$s %3$d %2$s %1$d</label>
 			<label index="format_date_php">d.m.Y</label>
 			<label index="currency">Fr.</label>
 		</languageKey>

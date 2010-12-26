@@ -2,12 +2,14 @@
 <!-- ###TEMPLATE### begin -->
 <span id="tx_casreservation_pibook"></span>
 <table align="center" width="100%"  class="texte">
-	<tr><td align="left">
-	<form action="###FORM_ACTION_SELECT_WEEK###" method="post" name="tx_casreservation_pibook_selectweek">###SELECT_ROOM###&nbsp;###SELECT_WEEK###</form>
+	<tr>
+	<td align="left">
+		<form method="post" action="###FORM_ACTION_SELECT_WEEK###" name="tx_casreservation_pibook_selectweek">###SELECT_ROOM###&nbsp;###SELECT_WEEK###</form>
 	</td><td>&nbsp;</td><td align="right">###DATE###</td></tr>
 </table>
+
 <br />
-<form action="###FORM_ACTION_BOOKING###" method="post" name="tx_casreservation_pibook_booking">
+<center><form action="###FORM_ACTION_BOOKING###" method="post" name="tx_casreservation_pibook_booking">
 
 ###DIV_WEEKVIEW###
 
@@ -35,6 +37,7 @@
 	</div>
 
 </form>
+</center>
 
 <h2>###FARE###</h2>
 ###DISPLAY_COSTS###
