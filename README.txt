@@ -23,15 +23,15 @@ Also implemented :
 
 INSTALLATION : 
 
-1. Install the extension in typo3 extension manager.
-2. In typo3 backend, go to template -> Include static : add 'cas_reservation'
+1. Install the extension in typo3 extension manager: activate the extention and create all the listed tables.
+2. In typo3 backend, go to template -> Edit the whole template record -> Include static : add 'cas_reservation'
 3. Fill SQL tables : tables can be filled after extension installation with file ext_tables_static+adt.sql
 
 Except for tables :
 	- codes : Use the good script. Not included in plugin for security reasons
-	- dates_group : Use the python script to generate the full table : python fill_dates_group.py >fill_dates_group.typo.sql
+	- dates_special : Use the python script to generate the full table : python fill_dates_group.py >fill_dates_group.typo.sql
 
-4. Create user groups : (names are given as examples)
+4. Create front end user groups : (names are given as examples)
 	- AdminReservationX : Admin group
 	- AllowedUsersX : Members that can ask for reservations
 	
@@ -41,8 +41,8 @@ Except for tables :
  - administration of reservations (page must be restricted to AllowedUsersX)
 
 6. Setup the 3 plugins on typo3 via Page, (edit plugin), Plugin. Up to  settings can be set. 
- - Admin group number : number of the admin group (as created in typo3 backend) here : AdminReservationX
- - Room to be rent : numbers of the room to rent separated with a comma. This must correspond with table tx_casreservation_room.
+ - Admin group number : id of the admin group (as created in typo3 backend) here : AdminReservationX
+ - Room to be rent : id of the room to rent separated with a comma. This must correspond with table tx_casreservation_room.
  - Send notification e-mail : 0 or 1 : 1 to send e-mails
  - Email address to send notification e-mails
 
@@ -55,5 +55,5 @@ Except for tables :
     * head_bill_room<id>.txt
     * line_bill_room<id>.txt
     * foot_bill_room<id>.txt
-    (<id> must be equal to the number of the first room (as given in flexform parameters of plugin configuration in backend))
+    (<id> must be equal to the id of the first room (as given in flexform parameters of plugin configuration in backend))
     e.g. if the plugin is inserted to manage room 3,4 and 5 : <id> = 3
