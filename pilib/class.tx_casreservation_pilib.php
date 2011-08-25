@@ -136,21 +136,11 @@ static function explainBoolean($str)
 		return "(Valeur inconnue '$str')";
 }
 
-/*static function explainStatus($str)
+static function explainStatus($str)
 {
-	if($str=="0")
-		return "Annul&eacute;";
-	else if($str=="1")
-		return "En&nbsp;attente";
-	else if($str=="2")
-		return "Accept&eacute;";
-	else if($str=="3")
-		return "Factur&eacute;";
-	else if($str=="4")
-		return "Pay&eacute;";
-	else
-		return "(erreur, valeur inconnue)";
+	return $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:status'.floor($str));
 }
+/*
 static function explainOccupation($str)
 {
 	if($str=="0")
