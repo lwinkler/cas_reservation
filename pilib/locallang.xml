@@ -65,6 +65,12 @@
 			<label index="format_date">%4$s, %2$s %3$d, %1$d</label>
 			<label index="format_date_php">d.m.Y</label>
 			<label index="currency">$</label>
+
+			<label index="status0">Canceled</label>
+			<label index="status1">Pending</label>
+			<label index="status2">Accepted</label>
+			<label index="status3">Billed</label>
+			<label index="status4">Paid</label>
 		</languageKey>
 		<languageKey index="fr" type="array">
 			<label index="month01">janvier</label>
@@ -123,6 +129,12 @@
 			<label index="format_date">%4$s %3$d %2$s %1$d</label>
 			<label index="format_date_php">d.m.Y</label>
 			<label index="currency">Fr.</label>
+
+			<label index="status0">Annulé</label>
+			<label index="status1">En attente</label>
+			<label index="status2">Accepté</label>
+			<label index="status3">Facturé</label>
+			<label index="status4">Payé</label>
 		</languageKey>
 
 	</data>

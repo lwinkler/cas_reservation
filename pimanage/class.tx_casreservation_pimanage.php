@@ -727,8 +727,8 @@ class tx_casreservation_pimanage extends tslib_pibase {
 		}
 		else $code='';
 		
-		if($status==3)$strstatus=tx_casreservation_pilib::explainstatus($status)."*";
-		else $strstatus=tx_casreservation_pilib::explainstatus($status);
+		if($status==3)$strstatus=tx_casreservation_pilib::explainStatus($status)."*";
+		else $strstatus=tx_casreservation_pilib::explainStatus($status);
 
 		if($material) $strmaterial='avec matériel'; else $strmaterial='';
 
