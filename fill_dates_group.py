@@ -8,7 +8,7 @@ diff2 = datetime.timedelta(weeks=1)
 
 dlu = datetime.date(2010, 8, 16)
 dend = datetime.date(2100, 12, 31)
-print "use `typo3_cas-moleson-ch`;"
+#print "use `typo3_cas-moleson-ch`;"
 
 while dlu<dend:
 	#samedi
