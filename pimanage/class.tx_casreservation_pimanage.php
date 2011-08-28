@@ -364,10 +364,10 @@ class tx_casreservation_pimanage extends tslib_pibase {
 				$this->allids.= $id."-";
 				if($this->isAdmin) $login2= '<td>'.$login.'</td>';
 				else $login2='';
-				
+				// TODO : use page numbers instead of this workaround $cc < 20
 				$content.='
  <tr class="'.($conflict>1 ? "conflict" :"line".($cc%2)).'"> 
-  <td class="statb'.$status.'"><input type="checkbox" name="'.$this->prefixId.'[cb-'.$id.']"/> </td>
+  <td class="statb'.$status.'">'.($cc<20 ? '<input type="checkbox" name="'.$this->prefixId.'[cb-'.$id.']"/>':'').' </td>
   <td>'.$room.'</td>
   '.$login2.'
   <td>'.$label.'</td>
@@ -376,8 +376,8 @@ class tx_casreservation_pimanage extends tslib_pibase {
   <td>'.tx_casreservation_pilib::explainBoolean($material).'</td>
   <td>'.$date_demand.'</td>
   <td>'.$time_demand.'</td>
-  <td>'.tx_casreservation_pilib::explainDate($date_bill,'bill',$id,$status, $editable).'</td>
-  <td>'.tx_casreservation_pilib::explainDate($date_pay,'pay',$id,$status, $editable).'</td>
+  <td>'.tx_casreservation_pilib::explainDate($date_bill,'bill',$id,$status, $editable && $cc < 20).'</td>
+  <td>'.tx_casreservation_pilib::explainDate($date_pay,'pay',$id,$status, $editable && $cc < 20).'</td>
   <td>'.tx_casreservation_pilib::explainPaid($paid, $price, $id, $status, $editable).'</td>
   <td>'.tx_casreservation_pilib::explainNote($note).'</td>
   &nbsp;<input type="hidden" name="'.$this->prefixId.'[price-'.$id.']" value="'.$price.'"/>
@@ -419,7 +419,7 @@ class tx_casreservation_pimanage extends tslib_pibase {
 		$content.= '</td></tr><tr><td>&nbsp;</td></tr>
 </table>
 <input type="hidden" name="'.$this->prefixId.'[ids]" value="'.$this->allids.'"/>'."\n";
-
+		// TODO : Maybe use a cleaner ways than hidden ids
 		return $content;
 
 	}
