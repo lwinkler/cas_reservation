@@ -1,10 +1,11 @@
 <font face="Times New Roman" size="2" >
 <p align="right"><img src="typo3conf/ext/cas_reservation/images/entete-facture.png" width="250"/></p>
-Marie-Claude Ruffieux<br />
-Le Hubel<br />
-1783 Pensier<br />
-026 466 79 08<br />
-079 227 17 19<br />
+Monique Jutzet<br />
+Rte de la Poudrière 33<br />
+1700 Fribourg<br />
+079 514 33 46<br />
+<br />
+
 <table width="100%" face="Times New Roman" size="2" >
 
 <tr><td width="60%">&nbsp;</td><td><font face="Times New Roman" size="2" >###NAME###</font></td></tr> 
