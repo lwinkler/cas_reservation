@@ -376,9 +376,9 @@ class tx_casreservation_pimanage extends tslib_pibase {
   <td>'.tx_casreservation_pilib::explainBoolean($material).'</td>
   <td>'.$date_demand.'</td>
   <td>'.$time_demand.'</td>
-  <td>'.tx_casreservation_pilib::explainDate($date_bill,'bill',$id,$status, $editable && $cc < 20).'</td>
-  <td>'.tx_casreservation_pilib::explainDate($date_pay,'pay',$id,$status, $editable && $cc < 20).'</td>
-  <td>'.tx_casreservation_pilib::explainPaid($paid, $price, $id, $status, $editable).'</td>
+  <td>'.tx_casreservation_pilib::explainDate($date_bill,'bill',$id,$status, $editable && $cc < 20, $this).'</td>
+  <td>'.tx_casreservation_pilib::explainDate($date_pay,'pay',$id,$status, $editable && $cc < 20, $this).'</td>
+  <td>'.tx_casreservation_pilib::explainPaid($paid, $price, $id, $status, $editable, $this).'</td>
   <td>'.tx_casreservation_pilib::explainNote($note).'</td>
   &nbsp;<input type="hidden" name="'.$this->prefixId.'[price-'.$id.']" value="'.$price.'"/>
  </tr>';

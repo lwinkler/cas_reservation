@@ -107,7 +107,7 @@ static function explainRoom($no, $str)
 		return '<img src="typo3conf/ext/cas_reservation/images/room'.$no.'.png" width="20" title="'.$str.'"/>';
 }
 
-static function explainDate($str,$label,$no,$status,$editable)
+static function explainDate($str,$label,$no,$status,$editable,$plugin)
 {
 	if($editable&&($label=="bill"&&$status==2||$label=="pay"&&$status==3)){
 		return "<script language=\"javascript\" type=\"text/javascript\" >creerselect('$label','$no','".$plugin->prefixId."');</script>";
