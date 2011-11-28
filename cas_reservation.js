@@ -19,7 +19,7 @@ box=document.getElementById("cb-"+no);
 	// Création de la liste déroulante des libellés des mois
 	document.write("<select name='"+plugin+"[mm-"+label+'-'+no+"]'>");
 	for(i=0;i<=11;i++){
-		document.write("<option value="+i);
+		document.write("<option value="+(i+1));
 		if(aujour.getMonth()==i){document.write(" selected");}
 		document.write(">"+mois[i]+"</option>");
 	}

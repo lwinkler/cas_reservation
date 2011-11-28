@@ -277,7 +277,6 @@ class tx_casreservation_pimanage extends tslib_pibase {
 //========================================================================
 
 	function generateRecordTable($conditions, $editable, $page){
-echo intval($offset).', '.intval($this->rowsPerPage);
 		$offset = ($page - 1) * $this->rowsPerPage;
 		$content='';
 		// first count rows
