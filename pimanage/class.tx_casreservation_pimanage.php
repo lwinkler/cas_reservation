@@ -50,7 +50,7 @@ class tx_casreservation_pimanage extends tslib_pibase {
 	var $pi_checkCHash = true;
 
 	// how many records to show per page
-	var $rowsPerPage = 4;
+	var $rowsPerPage = 20;
 	var $allids = '';
 	var $isAdmin;
 	
@@ -381,10 +381,9 @@ echo intval($offset).', '.intval($this->rowsPerPage);
 				$this->allids.= $id."-";
 				if($this->isAdmin) $login2= '<td>'.$login.'</td>';
 				else $login2='';
-				// TODO : use page numbers instead of this workaround $cc < 20
 				$content.='
  <tr class="'.($conflict>1 ? "conflict" :"line".($cc%2)).'"> 
-  <td class="statb'.$status.'">'.($cc<20 ? '<input type="checkbox" name="'.$this->prefixId.'[cb-'.$id.']"/>':'').' </td>
+  <td class="statb'.$status.'">'.'<input type="checkbox" name="'.$this->prefixId.'[cb-'.$id.']"/>'.' </td>
   <td>'.$room.'</td>
   '.$login2.'
   <td>'.$label.'</td>
@@ -393,8 +392,8 @@ echo intval($offset).', '.intval($this->rowsPerPage);
   <td>'.tx_casreservation_pilib::explainBoolean($material).'</td>
   <td>'.$date_demand.'</td>
   <td>'.$time_demand.'</td>
-  <td>'.tx_casreservation_pilib::explainDate($date_bill,'bill',$id,$status, $editable && $cc < 20, $this).'</td>
-  <td>'.tx_casreservation_pilib::explainDate($date_pay,'pay',$id,$status, $editable && $cc < 20, $this).'</td>
+  <td>'.tx_casreservation_pilib::explainDate($date_bill,'bill',$id,$status, $editable, $this).'</td>
+  <td>'.tx_casreservation_pilib::explainDate($date_pay,'pay',$id,$status, $editable, $this).'</td>
   <td>'.tx_casreservation_pilib::explainPaid($paid, $price, $id, $status, $editable, $this).'</td>
   <td>'.tx_casreservation_pilib::explainNote($note).'</td>
   &nbsp;<input type="hidden" name="'.$this->prefixId.'[price-'.$id.']" value="'.$price.'"/>
