@@ -61,6 +61,7 @@
 			<label index="filter_past_label">Display past reservations as well</label>
 			<label index="title_filter">Filter reservations</label>
 			<label index="title_fare">Fare</label>
+			<label index="page">Page</label>
 		</languageKey>
 
 		<languageKey index="fr" type="array">
@@ -119,6 +120,7 @@
 			<label index="filter_past_label">Afficher les réservations passées également</label>
 			<label index="title_filter">Filtrer les réservations</label>
 			<label index="title_fare">Tarifs</label>
+			<label index="page">Page</label>
 		</languageKey>
 
 	</data>

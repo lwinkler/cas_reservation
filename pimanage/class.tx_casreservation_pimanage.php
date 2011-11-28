@@ -50,7 +50,7 @@ class tx_casreservation_pimanage extends tslib_pibase {
 	var $pi_checkCHash = true;
 
 	// how many records to show per page
-	var $rowsPerPage = 20;
+	var $rowsPerPage = 4;
 	var $allids = '';
 	var $isAdmin;
 	
@@ -63,6 +63,8 @@ class tx_casreservation_pimanage extends tslib_pibase {
 	var $jpgraph_pathlib = "";
 	var $jpgraph_pathsampler = "";
 
+	// members
+	var $nb_records = 0;
 
 	/**
 	 * The main method of the PlugIn
@@ -118,6 +120,7 @@ class tx_casreservation_pimanage extends tslib_pibase {
 		$condRoom = $this->room;
 
 		$page = intval($this->piVars['page']);
+		if($page < 1)$page = 1;
 
 		if($this->piVars['stats'] == "on") return $this->showStatistiques();
 
@@ -187,9 +190,9 @@ class tx_casreservation_pimanage extends tslib_pibase {
 		$markerArray['###FILTER_STATUS###'] = $this->generateFilter($condUser, $condStatus, $condPast, $condRoom);
 		$markerArray['###DISPLAY_USER###'] = tx_casreservation_pilib::displayUser($condUser);
 		$markerArray['###FORM_CHANGE_ACTION###'] = $this->pi_getPageLink($GLOBALS['TSFE']->id, '');
-		$markerArray['###RECORD_TABLE###'] = $this->generateRecordTable($conditions, $this->isAdmin);
+		$markerArray['###RECORD_TABLE###'] = $this->generateRecordTable($conditions, $this->isAdmin, $page);
 		$markerArray['###COMMANDS###'] = $this->generateCommands();
-		$markerArray['###SELECT_PAGE###'] = $this->generateSelectPage($page, 1000);
+		$markerArray['###SELECT_PAGE###'] = $this->generateSelectPage($page, $this->nb_records);
 
 		
 		if($condRoom != '')
@@ -273,15 +276,24 @@ class tx_casreservation_pimanage extends tslib_pibase {
 /// Generate the records table
 //========================================================================
 
-	function generateRecordTable($conditions, $editable){
-
+	function generateRecordTable($conditions, $editable, $page){
+echo intval($offset).', '.intval($this->rowsPerPage);
+		$offset = ($page - 1) * $this->rowsPerPage;
 		$content='';
+		// first count rows
+		$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery("count(*)",
+			'tx_casreservation_reservation JOIN fe_users ON uid=member_id',
+			$conditions.' and room IN('.implode(',',$this->rooms).')'
+			)
+			or die('Error, query failed. line '.__LINE__ . $GLOBALS['TYPO3_DB']->sql_error());
+		list($this->nb_records) = $GLOBALS['TYPO3_DB']->sql_fetch_row($result);
+
 		$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery("id, room, member_id, username, DATE_FORMAT(date_demand, '%d.%m.%Y'), time_demand, date_reserv, DATE_FORMAT(date_reserv, '%d.%m.%Y'),".
 			"time_reserv, tx_casreservation_reservation.status, note, material, DATE_FORMAT(date_bill, '%d.%m.%Y'),DATE_FORMAT(date_pay, '%d.%m.%Y'), paid, label",
 			'tx_casreservation_reservation JOIN fe_users ON uid=member_id',
 			$conditions.' and room IN('.implode(',',$this->rooms).')',
 			'','date_reserv, time_reserv',  // using ORDER BY to show the most current entry first
-			'' // LIMIT '.intval($offset).', LIMIT '.intval($this->rowsPerPage)
+			intval($offset).', '.intval($this->rowsPerPage)
 			) // LIMIT
 			or die('Error, query failed. line '.__LINE__ . $GLOBALS['TYPO3_DB']->sql_error());
 
@@ -1072,23 +1084,32 @@ class tx_casreservation_pimanage extends tslib_pibase {
 		}
 		return $content;
 	}
-} // end of class
 
 //========================================================================
 /// Generate the page selection
 //========================================================================
 
-	function generateSelectPage($page, $nbRecords){
+	function generateSelectPage($page, $nbRecords)
 	{
-		if($nbRecords < this->rowsPerPage) return "";
-		$content = '';
-		$pageMax = ceil($nbRecords / this->rowsPerPage);
-		for($i = 0 ; $i < $pageMax ; $i++)
+		$pageMax = ceil($nbRecords / $this->rowsPerPage);
+		if($nbRecords < $this->rowsPerPage) return "";
+
+		$content .= $this->pi_getLL('page').'&nbsp;';
+		$content.='<select name="'.$this->prefixId.'[page]" onchange="this.form.submit();">';
+
+		for($i = 1 ; $i <= $pageMax ; $i++)
 		{
-			$content .= '"<input type="radio" name="'.$this->prefixId.'[page]" onclick="this.form.submit();" value="'.$i.'" '.($page== $i ?'checked="checked"':'').' /><font>' . $i .'</font><br/>';
-		}
+			$content.="<option value=\"$i\"";
+			if($i==$page) $content.="selected=\"selected\"";
+			$content.=">".$i."</option>\n"; 
+		} // end while
+		$content.='</select>';
 		return $content;
 	}
+
+
+
+} // end of class
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/cas_reservation/pimanage/class.tx_casreservation_pimanage.php'])	{
 	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/cas_reservation/pimanage/class.tx_casreservation_pimanage.php']);
