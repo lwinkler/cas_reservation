@@ -133,6 +133,7 @@ class tx_casreservation_pibook extends tslib_pibase {
 		$markerArray['###FARE###'] = $this->pi_getLL('fare');
 		$markerArray['###NOTE###'] = $this->pi_getLL('note');
 		$markerArray['###LABEL###'] = $this->pi_getLL('label') . '&nbsp;<img src="typo3conf/ext/cas_reservation/images/helpbubble.gif" title="' . $this->pi_getLL('descr_label') . '" alt=""/>';
+		$markerArray['###LABEL_VALUE###'] = $GLOBALS['TSFE']->fe_user->user['company'];
 		$markerArray['###MAKE_A_DEMAND###'] = $this->pi_getLL('make_a_demand');
 
 		// Create the content by replacing the content markers in the template

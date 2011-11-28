@@ -617,7 +617,6 @@ class tx_casreservation_pimanage extends tslib_pibase {
 						$GLOBALS['TYPO3_DB']->exec_INSERTquery("tx_casreservation_email", $insertArray) 
 							or die('Error, query failed. line '.__LINE__ . $GLOBALS['TYPO3_DB']->sql_error());
 
-
 						// marquer comme paye
 						$updateArray = array('status' => '4', 
 								'date_pay' => $date_pay,

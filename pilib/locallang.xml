@@ -49,6 +49,7 @@
 			<label index="weekday_short6">Sat</label>
 			<label index="weekday_short7">Sun</label>
 			<label index="yes">Yes</label>
+			<label index="no">No</label>
 			
 			<label index="login">Login</label>
 			<label index="name">Name</label>
@@ -113,6 +114,7 @@
 			<label index="weekday_short6">Sa</label>
 			<label index="weekday_short7">Di</label>
 			<label index="yes">Oui</label>
+			<label index="no">Non</label>
 			
 			<label index="login">Login</label>
 			<label index="name">Nom</label>

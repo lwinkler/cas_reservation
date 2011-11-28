@@ -117,7 +117,7 @@ static function explainDate($str,$label,$no,$status,$editable,$plugin)
 	}
 }
 
-static function explainPaid($str, $default, $no, $status, $editable)
+static function explainPaid($str, $default, $no, $status, $editable, $plugin)
 {
 	if($editable&&$status==3)
 		return '
@@ -189,9 +189,11 @@ return '<img src="typo3conf/ext/cas_reservation/images/helpbubble.gif" title="'.
 
 static function getDate()
 {
+	$month = date("n");
+	if($month < 10) $month = "0".$month;
 	return sprintf($GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:format_date'),
 		date("Y"),
-		$GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:month' . date("n")), 
+		$GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:month' . $month), 
 		date("d"), 
 		$GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:weekday' . date("w")));
 }
