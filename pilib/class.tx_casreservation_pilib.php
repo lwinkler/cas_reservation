@@ -138,7 +138,11 @@ static function explainBoolean($str)
 
 static function explainStatus($str)
 {
+<<<<<<< HEAD
 	return $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:status'.intval($str));
+=======
+	return $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:status'.floor($str));
+>>>>>>> 710f1db5513aa688f90b42236da603b77154068b
 }
 /*
 static function explainOccupation($str)
