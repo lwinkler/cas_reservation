@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "cas_reservation".
 #
-# Auto generated 12-03-2012 22:48
+# Auto generated 13-03-2012 08:12
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next

@@ -40,7 +40,7 @@ Except for tables :
  - create new reservation (page must be restricted to AllowedUsersX)
  - administration of reservations (page must be restricted to AllowedUsersX)
 
-6. Setup the 3 plugins on typo3 via Page, (edit plugin), Plugin. Up to  settings can be set. 
+6. Setup the 3 plugins on typo3 via Page, (edit plugin), Plugin. Up to 4 settings can be set. 
  - Admin group number : id of the admin group (as created in typo3 backend) here : AdminReservationX
  - Room to be rent : id of the room to rent separated with a comma. This must correspond with table tx_casreservation_room.
  - Send notification e-mail : 0 or 1 : 1 to send e-mails

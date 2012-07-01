@@ -1,8 +1,9 @@
 <font face="Times New Roman" size="2" >
 <p align="right"><img src="typo3conf/ext/cas_reservation/images/entete-facture.png" width="250"/></p>
 Monique Jutzet<br />
-Rte de la Poudrière 33<br />
+Rte de la Poudri&egrave;re 33<br />
 1700 Fribourg<br />
+026 424 33 77<br />
 079 514 33 46<br />
 <br />
 
