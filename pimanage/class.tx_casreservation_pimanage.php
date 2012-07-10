@@ -929,6 +929,8 @@ class tx_casreservation_pimanage extends tslib_pibase {
 
 	function showStatistiques()
 	{
+		if($GLOBALS['TYPO3_LOADED_EXT']['rt_jpgraphlib'] == '')return 'Error: Please install the jpgraph extension';
+
 		//$GLOBALS['TSFE']->additionalHeaderData[] = '<script type="text/javascript" src="typo3conf/ext/cas_reservation/cas_reservation.js"></script>';
 		if(!$this->isAdmin) return "Error : This page is for admins only !!";
 		
