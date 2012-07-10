@@ -24,8 +24,12 @@ Also implemented :
 INSTALLATION : 
 
 1. Install the extension in typo3 extension manager: activate the extention and create all the listed tables.
-2. In typo3 backend, go to template -> Edit the whole template record -> Include static : add 'cas_reservation'
+2. In typo3 backend, go to template -> (info/modify) -> Edit the whole template record -> Include static : add 'cas_reservation'
+ - Also check: "Include Static Templates After Basis Templates:" 
+
 3. Fill SQL tables : tables can be filled after extension installation with file ext_tables_static+adt.sql
+
+command: mysql -u typo3 -ptypo3 TYPO3 < ext_tables_static+adt.sql
 
 Except for tables :
 	- codes : Use the good script. Not included in plugin for security reasons

@@ -63,5 +63,6 @@ t3lib_extMgm::addPlugin(array(
 // Line added to use flexform 
 t3lib_extMgm::addPiFlexFormValue($_EXTKEY.'_pimanage', 'FILE:EXT:'.$_EXTKEY.'/flexform_ds.xml');
 
-t3lib_extMgm::addStaticFile($_EXTKEY,'static/', 'CAS Réservation');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'static/', 'CAS Reservation');
+
 ?>

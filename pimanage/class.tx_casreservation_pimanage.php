@@ -77,6 +77,9 @@ class tx_casreservation_pimanage extends tslib_pibase {
 		$this->conf = $conf;
 		$this->pi_setPiVarDefaults();
 		$this->pi_loadLL();
+		// ini_set('display_errors', TRUE);
+		// error_reporting(E_ALL);
+
 		$this->templateCode = $this->cObj->fileResource($conf['templateFile']);
 
 		// Initialization
