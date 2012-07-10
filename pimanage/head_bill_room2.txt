@@ -1,9 +1,9 @@
 <font face="Times New Roman" size="2" >
 <p align="right"><img src="typo3conf/ext/cas_reservation/images/entete-facture.png" width="250"/></p>
-Annick Monod<br />
-Rue d'Or 19<br />
-1700 Fribourg<br />
-079 704 45 65<br />
+Michel Rolle<br />
+Rte du Marchet 2<br />
+1740 Neyruz<br />
+026 477 16 50<br />
 <br />
 <br />
 
