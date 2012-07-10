@@ -1,2 +1,2 @@
-<html>Bonjour,
+Bonjour,
 <p>L'état de vos demandes de réservation pour le chalet d'Arsent a changé : </p>

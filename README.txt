@@ -50,14 +50,10 @@ Except for tables :
  - Send notification e-mail : 0 or 1 : 1 to send e-mails
  - Email address to send notification e-mails
 
-7. Change text files containing the contents of e-mails and bills. 
- - Files can be found inside the plugin in pimanage directory.
- - For each insertion of the plugin there should be 6 files 
-    * head_mail_room<id>.txt
-    * line_mail_room<id>.txt
-    * foot_mail_room<id>.txt
-    * head_bill_room<id>.txt
-    * line_bill_room<id>.txt
-    * foot_bill_room<id>.txt
-    (<id> must be equal to the id of the first room (as given in flexform parameters of plugin configuration in backend))
-    e.g. if the plugin is inserted to manage room 3,4 and 5 : <id> = 3
+7. Edit the e-mail and bill texts in the settings (same access as above)
+ - Each (bill and e-mail) are separated into head, line, foot
+ - Examples can be found in directory pimanage/examples
+ - Note that these texts are only used in the pimanage plugin. There is no need to set them for the other plugins
+
+
+

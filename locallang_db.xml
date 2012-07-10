@@ -11,7 +11,8 @@
 			<label index="tt_content.list_type_pimanage">Administration of reservations</label>
 			<label index="tt_content.pi_flexform.list_type_pidisplay">Sample Flexform Plugin</label>
 			<label index="tt_content.pi_flexform.sheet_general">General Settings</label>
-			<label index="tt_content.pi_flexform.sheet_display">Display Settings</label>
+			<label index="tt_content.pi_flexform.sheet_email">Email generation</label>
+			<label index="tt_content.pi_flexform.sheet_bill">Bill generation</label>
 			<label index="tt_content.pi_flexform.sheet_error">Error Handling Settings</label>
 			<label index="tt_content.pi_flexform.disable_rte">Disable the Rich Text Editor</label>
 			<label index="tt_content.pi_flexform.show_errors">Show Errors</label>
@@ -20,14 +21,21 @@
 			<label index="tt_content.pi_flexform.room">Rooms to be rent (room numbers separated with a coma)</label>
 			<label index="tt_content.pi_flexform.send_email">Send e-mail notification (0 or 1)</label>
 			<label index="tt_content.pi_flexform.email_admin">Email address to send notifications of new reservations</label>
+			<label index="tt_content.pi_flexform.head_email">Email header</label>
+			<label index="tt_content.pi_flexform.line_email">Email line</label>
+			<label index="tt_content.pi_flexform.foot_email">Email footer</label>
+			<label index="tt_content.pi_flexform.head_bill">Bill header</label>
+			<label index="tt_content.pi_flexform.line_bill">Bill line</label>
+			<label index="tt_content.pi_flexform.foot_bill">Bill footer</label>
 		</languageKey>
 		<languageKey index="fr" type="array">
 			<label index="tt_content.list_type_pidisplay">Affichage de la grille de semaine</label>
 			<label index="tt_content.list_type_pibook">Créer une nouvelle réservation</label>
 			<label index="tt_content.list_type_pimanage">Administration des réservations</label>
 			<label index="tt_content.pi_flexform.list_type_pidisplay">Sample Flexform Plugin</label>
-			<label index="tt_content.pi_flexform.sheet_general">General Settings</label>
-			<label index="tt_content.pi_flexform.sheet_display">Display Settings</label>
+			<label index="tt_content.pi_flexform.sheet_general">Paramètres généraux</label>
+			<label index="tt_content.pi_flexform.sheet_email">Génération d'e-mail</label>
+			<label index="tt_content.pi_flexform.sheet_bill">Génération de facture</label>
 			<label index="tt_content.pi_flexform.sheet_error">Error Handling Settings</label>
 			<label index="tt_content.pi_flexform.disable_rte">Disable the Rich Text Editor</label>
 			<label index="tt_content.pi_flexform.show_errors">Show Errors</label>
@@ -36,6 +44,12 @@
 			<label index="tt_content.pi_flexform.room">Numéros des salles à louer (séparé par une virgule)</label>
 			<label index="tt_content.pi_flexform.send_email">Envoyer notifications par e-mail (0 ou 1)</label>
 			<label index="tt_content.pi_flexform.email_admin">Address e-mail pour l'envoi de notification de nouvelle réservation</label>			
+			<label index="tt_content.pi_flexform.head_email">Entête de l'e-mail</label>
+			<label index="tt_content.pi_flexform.line_email">Ligne de l'e-mail</label>
+			<label index="tt_content.pi_flexform.foot_email">Pied de l'e-mail</label>
+			<label index="tt_content.pi_flexform.head_bill">Entête de facture</label>
+			<label index="tt_content.pi_flexform.line_bill">Ligne de facture</label>
+			<label index="tt_content.pi_flexform.foot_bill">Pied de facture</label>
 		</languageKey>
 	</data>
 </T3locallang>

@@ -2,4 +2,4 @@
 <p>Les réservations sont facturées par envoi de courrier. Dans ce cas, vous recevrez la facture dans les jours qui suivent.</p>
 <p> Cet email est généré automatiquement, merci de ne pas y répondre. </p>
 <p>En cas de doute, veuillez <a href="http://www.cas-moleson.ch/infrastructures/chalet-darsent/occupation.html">consulter la grille de réservation</a> ou contacter le responsable.</p>
-</html>
+

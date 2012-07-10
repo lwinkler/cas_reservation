@@ -79,7 +79,6 @@ class tx_casreservation_pimanage extends tslib_pibase {
 		$this->pi_loadLL();
 		// ini_set('display_errors', TRUE);
 		// error_reporting(E_ALL);
-
 		$this->templateCode = $this->cObj->fileResource($conf['templateFile']);
 
 		// Initialization
@@ -171,7 +170,7 @@ class tx_casreservation_pimanage extends tslib_pibase {
 			return $this->pi_wrapInBaseClass($content);
 		}
 		if($this->piVars['action'] == "email") { 
-			return $this->email();
+			return $this->email($piFlexForm);
 			//return $this->pi_wrapInBaseClass($content);
 		}
 		
@@ -651,13 +650,13 @@ class tx_casreservation_pimanage extends tslib_pibase {
 //========================================================================
 // entete de la facture
 //========================================================================
-	function head_bill($name,$address,$npa,$location,$tel,$email)
+	function head_bill($text,$name,$address,$npa,$location,$tel,$email)
 	{
-		$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/head_bill_room'.$this->rooms[0].'.txt';
-		$fh = fopen($myFile, 'r');
-		$text = fread($fh, 1000);
-		fclose($fh);
-		if($text == '') return "Error : cannot read file $myFile";
+		//$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/head_bill_room'.$this->rooms[0].'.txt';
+		//$fh = fopen($myFile, 'r');
+		//$text =  fread($fh, 1000);
+		//fclose($fh);
+		if($text == '') return "Error : cannot read bill header";
 
 		$text = str_replace("###NAME###", $name, $text);
 		$text = str_replace("###ADDRESS###", $address, $text);
@@ -669,13 +668,13 @@ class tx_casreservation_pimanage extends tslib_pibase {
 //========================================================================
 // Ligne de la facture
 //========================================================================
-	function line_bill($room_label, $date_reserv,$time_reserv,$label,$material,$price)
+	function line_bill($text,$room_label, $date_reserv,$time_reserv,$label,$material,$price)
 	{
-		$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/line_bill_room'.$this->rooms[0].'.txt';
-		$fh = fopen($myFile, 'r');
-		$text = fread($fh, 1000);
-		fclose($fh);
-		if($text == '') return "Error : cannot read file $myFile";
+		//$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/line_bill_room'.$this->rooms[0].'.txt';
+		//$fh = fopen($myFile, 'r');
+		//$text = fread($fh, 1000);
+		//fclose($fh);
+		if($text == '') return "Error : cannot read file bill line";
 
 		if($material)$strmaterial='avec'; else $strmaterial='sans';
 
@@ -691,13 +690,13 @@ class tx_casreservation_pimanage extends tslib_pibase {
 //========================================================================
 // Pied de la facture
 //========================================================================
-	function foot_bill($total,$date_reserv)
+	function foot_bill($text,$total,$date_reserv)
 	{
-		$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/foot_bill_room'.$this->rooms[0].'.txt';
-		$fh = fopen($myFile, 'r');
-		$text = fread($fh, 1000);
-		fclose($fh);
-		if($text == '') return "Error : cannot read file $myFile";
+		//$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/foot_bill_room'.$this->rooms[0].'.txt';
+		//$fh = fopen($myFile, 'r');
+		//$text = fread($fh, 1000);
+		//fclose($fh);
+		if($text == '') return "Error : cannot read file bill footer";
 
 		$text = str_replace("###TOTAL###", $total, $text);
 		$text = str_replace("###DATE###", $date_reserv, $text);
@@ -707,26 +706,26 @@ class tx_casreservation_pimanage extends tslib_pibase {
 //========================================================================
 // entete du mail
 //========================================================================
-	function head_mail()
+	function head_mail($text)
 	{
 		// Read data from text file
-		$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/head_mail_room'.$this->rooms[0].'.txt';
-		$fh = fopen($myFile, 'r');
-		$text = fread($fh, 1000);
-		fclose($fh);
-		if($text == '') return "Error : cannot read file $myFile";
-		return $text;
+		//$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/head_mail_room'.$this->rooms[0].'.txt';
+		//$fh = fopen($myFile, 'r');
+		//$text = fread($fh, 1000);
+		//fclose($fh);
+		if($text == '') return "Error : cannot read e-mail header";
+		return '<html>'.$text;
 	}
 //========================================================================
 // Ligne du mail
 //========================================================================
-	function line_mail($room, $room_label, $date_reserv, $time_reserv, $label, $material, $status)
+	function line_mail($text, $room, $room_label, $date_reserv, $time_reserv, $label, $material, $status)
 	{
 		// Read data from text file
-		$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/line_mail_room'.$this->rooms[0].'.txt';
-		$fh = fopen($myFile, 'r');
-		$text = fread($fh, 1000);
-		fclose($fh);
+		//$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/line_mail_room'.$this->rooms[0].'.txt';
+		//$fh = fopen($myFile, 'r');
+		//$text = fread($fh, 1000);
+		//fclose($fh);
 		
 		if($status==2){
 			//Recuperation du code de la semaine
@@ -756,7 +755,7 @@ class tx_casreservation_pimanage extends tslib_pibase {
 		$text = str_replace("###STATUS###", $strstatus, $text);
 		$text = str_replace("###CODE###", $code, $text);
 
-		if($text == '') return "Error : cannot read file $myFile";
+		if($text == '') return "Error : cannot read file email line";
 		
 		return $text; 
 	}
@@ -765,15 +764,15 @@ class tx_casreservation_pimanage extends tslib_pibase {
 
 
 //========================================================================
-	function foot_mail()
+	function foot_mail($text)
 	{
 		// Read data from text file
-		$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/foot_mail_room'.$this->rooms[0].'.txt';
-		$fh = fopen($myFile, 'r');
-		$text = fread($fh, 1000);
-		fclose($fh);
-		if($text == '') return "Error : cannot read file $myFile";
-		return $text;
+		//$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/foot_mail_room'.$this->rooms[0].'.txt';
+		//$fh = fopen($myFile, 'r');
+		//$text = fread($fh, 1000);
+		//fclose($fh);
+		if($text == '') return "Error : cannot read mail footer";
+		return $text.'</html>';
 	}
 //========================================================================
 /// Send an e-mail
@@ -786,7 +785,7 @@ class tx_casreservation_pimanage extends tslib_pibase {
 			//		$this->cObj->sendNotifyEmail('CAS Réservations'.chr(10).$this->head_mail().$message.$this->foot_mail(), $dest, '', 'no_reply@cas-moleson.ch', 'CAS réservations', '') )
 			if( $this->send_email)
 			{
-				$mailBody = $this->head_mail().$message.$this->foot_mail();
+				$mailBody = $message;
 				$mailer = t3lib_div::makeInstance('t3lib_htmlmail');
 				$mailer->start();
 				$mailer->from_email = $this->pi_getLL('mail_sender_email');
@@ -805,7 +804,7 @@ class tx_casreservation_pimanage extends tslib_pibase {
 			}
 			else
 				$content.= $this->pi_getLL('mail_not_sent') . $dest . "<br/>";
-			$content.= "\"*" . $this->pi_getLL('mail_subject') . "*\" <br/>#<br/> ".$this->head_mail().$message.$this->foot_mail()."<br/>#<br/> \"From: no_reply@cas-moleson.ch\" <br/>";
+			$content.= "\"*" . $this->pi_getLL('mail_subject') . "*\" <br/>#<br/> ".$message."<br/>#<br/> \"From: no_reply@cas-moleson.ch\" <br/>";
 		}
 		return $content;
 	}
@@ -816,7 +815,7 @@ class tx_casreservation_pimanage extends tslib_pibase {
 
 // Ici, on envoie les e-mails en attente
 
-	function email(){
+	function email($piFlexForm){
 		if(!$this->isAdmin) return "";
 		$content = '';
 		$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery("member_id, name, label, address, zip, city, telephone, email, reservation_id, room, DATE_FORMAT(date_reserv, '%d.%m.%Y'), time_reserv, room_name, material, status1, status2, price",
@@ -833,6 +832,13 @@ class tx_casreservation_pimanage extends tslib_pibase {
 		$cpt_bill=0;
 		$oldstatus= '';
 
+		$head_bill = $this->pi_getFFvalue($piFlexForm, "head_bill", "bill");
+		$line_bill = $this->pi_getFFvalue($piFlexForm, "line_bill", "bill");
+		$foot_bill = $this->pi_getFFvalue($piFlexForm, "foot_bill", "bill");
+		$head_email = $this->pi_getFFvalue($piFlexForm, "head_email", "email");
+		$line_email = $this->pi_getFFvalue($piFlexForm, "line_email", "email");
+		$foot_email = $this->pi_getFFvalue($piFlexForm, "foot_email", "email");
+
 		while($row = $GLOBALS['TYPO3_DB']->sql_fetch_row($result)){
 			list($id, $name, $label, $address, $npa, $location, $tel ,$email, $id_reserv, $room, $date_reserv, $time_reserv, $room_name, $material, $statusA, $statusB,$price) = $row;
 			
@@ -842,21 +848,21 @@ class tx_casreservation_pimanage extends tslib_pibase {
 			if($id_reserv2!=""){
 				if($id_reserv2!=$id_reserv){
 					if($oldstatus!=$statusB2)
-						$message.= $this->line_mail($room2, $room_name2, $date_reserv2, $time_reserv2, $label2, $material2, $statusB2);
+						$message.= $this->line_mail($line_email,$room2, $room_name2, $date_reserv2, $time_reserv2, $label2, $material2, $statusB2);
 					$oldstatus=$statusA;
 				}
 				// Creation de facture
 				if($statusB2==3){
-					$bill_line.=$this->line_bill($room_name2, $date_reserv2, $time_reserv2, $label2, $material2, $price2);
+					$bill_line.=$this->line_bill($line_bill,$room_name2, $date_reserv2, $time_reserv2, $label2, $material2, $price2);
 					$total+=$price2;
 				}
 				// Envoyer un seul email par utilisateur
 					if($id!=$id2){
-						$content .= $this->sendEmail($email2,$message);
+						$content .= $this->sendEmail($email2,$this->head_mail($head_email).$message.$this->foot_mail($foot_email));
 					$message='';
 				// On ajoute une facture
 					if($bill_line!=''){
-						$bill.=$this->head_bill($name2,$address2,$npa2,$location2,$tel2,$email2).$bill_line.$this->foot_bill($total, $date_reserv2);
+						$bill.=$this->head_bill($head_bill,$name2,$address2,$npa2,$location2,$tel2,$email2).$bill_line.$this->foot_bill($foot_bill,$total, $date_reserv2);
 						$cpt_bill++;
 						$bill_line='';
 						$total=0;
@@ -888,19 +894,19 @@ class tx_casreservation_pimanage extends tslib_pibase {
 		// On envoie le dernier mail !!!!
 		if($id_reserv2!=""){
 			if($oldstatus!=$statusB2)
-				$message.= $this->line_mail($room2, $room_name2, $date_reserv2,$time_reserv2,$label2,$material2,$statusB2);
+				$message.= $this->line_mail($line_email,$room2, $room_name2, $date_reserv2,$time_reserv2,$label2,$material2,$statusB2);
 				$oldstatus=$statusA;
-			$content .= $this->sendEmail($email2,$message);
+			$content .= $this->sendEmail($email2, $this->head_mail($head_email).$message.$this->foot_mail($foot_email));
 
 			// Creation de facture
 			if($statusB2==3){
-				$bill_line.=$this->line_bill($room_name2, $date_reserv2,$time_reserv2,$label2,$material2,$price2);
+				$bill_line.=$this->line_bill($line_bill,$room_name2, $date_reserv2,$time_reserv2,$label2,$material2,$price2);
 				$total+=$price2;
 			}
 
 			// On envoie une facture
 			if($bill_line!=''){
-				$bill.= $this->head_bill($name2,$address2,$npa2,$location2,$tel2,$email2).$bill_line.$this->foot_bill($total,$date_reserv2);
+				$bill.= $this->head_bill($head_bill,$name2,$address2,$npa2,$location2,$tel2,$email2).$bill_line.$this->foot_bill($foot_bill,$total,$date_reserv2);
 				$cpt_bill++;
 			}
 		}
