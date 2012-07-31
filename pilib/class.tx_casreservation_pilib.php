@@ -119,7 +119,7 @@ static function explainDate($str,$label,$no,$status,$editable,$plugin)
 
 static function explainPaid($str, $default, $no, $status, $editable, $plugin)
 {
-	if($editable&&$status==3)
+	if($editable&&($status==3 || $status ==2)) // show amount for billing and marking as paid
 		return '
 <input name="'.$plugin->prefixId.'[paid-'.$no.']" type="text" size="4" maxlength="8" value="'.sprintf("%0.2f",$default).'"/>
 ';

@@ -418,10 +418,10 @@ class tx_casreservation_pimanage extends tslib_pibase {
 		$content = '<table>';
 
 		if($this->isAdmin){
-			$content.= '<tr><td> <input type="radio" name="'.$this->prefixId.'[change]" value="confirm" checked="checked" />' . $this->pi_getLL('action_accept') . '</td></tr>'."\n";
-			$content.= '<tr><td> <input type="radio" name="'.$this->prefixId.'[change]" value="cancel"/>' . $this->pi_getLL('action_cancel') . '</td></tr>'."\n";
-			$content.= '<tr><td> <input type="radio" name="'.$this->prefixId.'[change]" value="bill"/>'   . $this->pi_getLL('action_bill') . '</td></tr>'."\n";
-			$content.= '<tr><td> <input type="radio" name="'.$this->prefixId.'[change]" value="pay"/>'    . $this->pi_getLL('action_pay') . '</td></tr>'."\n";
+			$content.= '<tr><td> <input type="radio" id="'.$this->prefixId.'[change_0]" name="'.$this->prefixId.'[change]" value="confirm" checked="checked" />' . $this->pi_getLL('action_accept') . '</td></tr>'."\n";
+			$content.= '<tr><td> <input type="radio" id="'.$this->prefixId.'[change_1]" name="'.$this->prefixId.'[change]" value="cancel"/>' . $this->pi_getLL('action_cancel') . '</td></tr>'."\n";
+			$content.= '<tr><td> <input type="radio" id="'.$this->prefixId.'[change_2]" name="'.$this->prefixId.'[change]" value="bill"/>'   . $this->pi_getLL('action_bill') . '</td></tr>'."\n";
+			$content.= '<tr><td> <input type="radio" id="'.$this->prefixId.'[change_3]" name="'.$this->prefixId.'[change]" value="pay"/>'    . $this->pi_getLL('action_pay') . '</td></tr>'."\n";
 		}else{
 			$content.= '<input type="hidden" name="'.$this->prefixId.'[change]" value="cancel" checked="checked" />'."\n";
 		}

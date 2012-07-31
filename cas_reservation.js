@@ -70,10 +70,10 @@ function isEmail(str)
 }
 
 function checkDates(){
-if(document.formChange.rbChange[0].checked)return true;
-if(document.formChange.rbChange[1].checked)return true;
-if(document.formChange.rbChange[2].checked)return confirm('Avez-vous inscrit correctement les dates de facturation ? \nCliquez sur ok si vous avez fait cela.');
-if(document.formChange.rbChange[3].checked)return confirm('Avez-vous inscrit correctement les dates de paiement ainsi que le montant ? \nCliquez sur ok si vous avez fait cela.');
+	if(document.getElementById("tx_casreservation_pimanage[change_0]").checked)return true;
+	if(document.getElementById("tx_casreservation_pimanage[change_1]").checked)return true;
+	if(document.getElementById("tx_casreservation_pimanage[change_2]").checked)return confirm('Avez-vous inscrit correctement les dates de facturation ? \nCliquez sur ok si vous avez fait cela.');
+	if(document.getElementById("tx_casreservation_pimanage[change_3]").checked)return confirm('Avez-vous inscrit correctement les dates de paiement ainsi que le montant ? \nCliquez sur ok si vous avez fait cela.');
 }
 
 /* 2 fcts Used to show text when hovering*/

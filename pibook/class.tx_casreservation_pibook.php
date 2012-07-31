@@ -82,6 +82,12 @@ class tx_casreservation_pibook extends tslib_pibase {
 		if(isset($this->piVars['week']))
 			$dateSelectedMonday= htmlspecialchars($this->piVars['week']);
 
+		// Delai min et max pour reservation
+		if(tx_casreservation_pilib::isAdmin($this)){
+			$this->delaymin="0 day";
+			$this->delaymax="+104 weeks";
+		}
+
 		if( $dateSelectedMonday == '' || strtotime($dateSelectedMonday) < strtotime($this->delaymin, strtotime($dateThisMonday))
 				|| strtotime($dateSelectedMonday) > strtotime($this->delaymax, strtotime($dateThisMonday)))
 			$dateSelectedMonday = $dateThisMonday;
@@ -96,11 +102,6 @@ class tx_casreservation_pibook extends tslib_pibase {
 		if($material=='') $material="1";
 
 		/// Initializations
-		// Delai min et max pour reservation
-		if(tx_casreservation_pilib::isAdmin($this)){
-			$this->delaymin="0 day";
-			$this->delaymax="+104 weeks";
-		}
 
 		if(isset($this->piVars['submit_button'])) { 
 			$content=$this->book();
@@ -114,7 +115,7 @@ class tx_casreservation_pibook extends tslib_pibase {
 		
 		// Get the parts out of the template
 		$template['total'] = $this->cObj->getSubpart($this->templateCode,'###TEMPLATE###');
-		
+
 		// Fill markers
 		$markerArray['###SELECT_WEEK###'] = tx_casreservation_pilib::displaySelectMonday($this->delaymin, $this->delaymax, $this, $dateSelectedMonday, $room);
 		$markerArray['###WEEK###'] = $dateSelectedMonday;
