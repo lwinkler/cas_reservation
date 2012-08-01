@@ -9,9 +9,9 @@ Rte de la Poudri&egrave;re 33[br /]
 
 [table width="100%" face="Times New Roman" size="2" ]
 
-[tr][td width="60%"]&nbsp;[/td][td][font face="Times New Roman" size="2" ]###NAME###[/font][/td][/tr] 
-[tr][td]&nbsp;[/td][td][font face="Times New Roman" size="2" ]###ADDRESS###[/font][/td][/tr] 
-[tr][td]&nbsp;[/td][td][font face="Times New Roman" size="2" ]###CODE### ###LOCATION###[/font][/td][/tr] 
+[tr][td width="60%"][/td][td][font face="Times New Roman" size="2" ]###NAME###[/font][/td][/tr] 
+[tr][td][/td][td][font face="Times New Roman" size="2" ]###ADDRESS###[/font][/td][/tr] 
+[tr][td][/td][td][font face="Times New Roman" size="2" ]###CODE### ###LOCATION###[/font][/td][/tr] 
 [/table]
 [br /]
 [br /]
