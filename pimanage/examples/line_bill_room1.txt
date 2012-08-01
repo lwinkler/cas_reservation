@@ -1,2 +1,2 @@
-<p>R&eacute;servation '###LABEL###', le <b>###DATE### de ###TIME###</b> Salle '###ROOM_LABEL###' ###MATERIAL###</p>
+[p]R&eacute;servation '###LABEL###', le [b]###DATE### de ###TIME###[/b] Salle '###ROOM_LABEL###' ###MATERIAL###[/p]
 

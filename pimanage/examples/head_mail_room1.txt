@@ -1,2 +1,2 @@
 Bonjour,
-<p>L'état de vos demandes de réservation pour le mur de grimpe a changé : </p>
+[p]L'état de vos demandes de réservation pour le mur de grimpe a changé : [/p]

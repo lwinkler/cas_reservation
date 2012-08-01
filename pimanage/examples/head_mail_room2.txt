@@ -1,2 +1,2 @@
 Bonjour,
-<p>L'état de vos demandes de réservation pour le chalet d'Arsent a changé : </p>
+[p]L'état de vos demandes de réservation pour le chalet d'Arsent a changé : [/p]

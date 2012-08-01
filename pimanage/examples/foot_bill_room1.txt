@@ -1,12 +1,12 @@
-<br /><br />Monsieur / Madame<br />
-<br /><p>Suite à la réservation mentionnée ci-dessus, je vous prie de bien vouloir nous verser le montant de 
-<b>###TOTAL### francs</b> au moyen du bulletin de versement ci-annexé sur le compte 17-887-8.</p>
-<p>Je vous remercie d'avance et vous adresse mes meilleures salutations</p>
-<br />
-<br />
-<br />
-<p align="right">Monique Jutzet</p>
-<br />
-<b><u>Annexe</u>: Bulletin de versement.</b>
-</font>
+[br /][br /]Monsieur / Madame[br /]
+[br /][p]Suite à la réservation mentionnée ci-dessus, je vous prie de bien vouloir nous verser le montant de 
+[b]###TOTAL### francs[/b] au moyen du bulletin de versement ci-annexé sur le compte 17-887-8.[/p]
+[p]Je vous remercie d'avance et vous adresse mes meilleures salutations[/p]
+[br /]
+[br /]
+[br /]
+[p align="right"]Monique Jutzet[/p]
+[br /]
+[b][u]Annexe[/u]: Bulletin de versement.[/b]
+[/font]
 

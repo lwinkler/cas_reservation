@@ -1,2 +1,2 @@
-<p>Réservation pour le groupe '###LABEL###', le <b>###DATE### de ###TIME###</b> Salle '###ROOM_LABEL###' ###MATERIAL###</p>
+[p]Réservation pour le groupe '###LABEL###', le [b]###DATE### de ###TIME###[/b] Salle '###ROOM_LABEL###' ###MATERIAL###[/p]
 

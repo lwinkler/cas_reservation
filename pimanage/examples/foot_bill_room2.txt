@@ -1,15 +1,15 @@
-<br /><br />Monsieur / Madame<br />
-<br /><p>Suite à la réservation mentionnée ci-dessus, je vous prie de bien vouloir nous verser le montant de 
-<b>###TOTAL### francs</b> au moyen du bulletin de versement ci-annexé sur le compte CCP 17-435-7, mention <b>« Réservation Arsent du ###DATE### »</b></p>
-<p>Je vous remercie d'avance et vous adresse mes meilleures salutations</p>
-<br />
-<p>Veuillez prendre contact avec la responsable du stamm (Cathy Rotzetter) pour obtenir la clef des locaux :</p>
-<p><b>Portable :</b> 078 627 71 44</p>
-<p><b>Courriel :</b> arsent@cas-moleson.ch</p>
-<br />
-<br />
-<p align="right">Michel Rolle</p>
-<br />
-<b><u>Annexe</u>: Bulletin de versement.</b>
-</font>
+[br /][br /]Monsieur / Madame[br /]
+[br /][p]Suite à la réservation mentionnée ci-dessus, je vous prie de bien vouloir nous verser le montant de 
+[b]###TOTAL### francs[/b] au moyen du bulletin de versement ci-annexé sur le compte CCP 17-435-7, mention [b]« Réservation Arsent du ###DATE### »[/b][/p]
+[p]Je vous remercie d'avance et vous adresse mes meilleures salutations[/p]
+[br /]
+[p]Veuillez prendre contact avec la responsable du stamm (Cathy Rotzetter) pour obtenir la clef des locaux :[/p]
+[p][b]Portable :[/b] 078 627 71 44[/p]
+[p][b]Courriel :[/b] arsent@cas-moleson.ch[/p]
+[br /]
+[br /]
+[p align="right"]Michel Rolle[/p]
+[br /]
+[b][u]Annexe[/u]: Bulletin de versement.[/b]
+[/font]
 

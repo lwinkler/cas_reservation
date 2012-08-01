@@ -832,12 +832,12 @@ class tx_casreservation_pimanage extends tslib_pibase {
 		$cpt_bill=0;
 		$oldstatus= '';
 
-		$head_bill = $this->pi_getFFvalue($piFlexForm, "head_bill", "bill");
-		$line_bill = $this->pi_getFFvalue($piFlexForm, "line_bill", "bill");
-		$foot_bill = $this->pi_getFFvalue($piFlexForm, "foot_bill", "bill");
-		$head_email = $this->pi_getFFvalue($piFlexForm, "head_email", "email");
-		$line_email = $this->pi_getFFvalue($piFlexForm, "line_email", "email");
-		$foot_email = $this->pi_getFFvalue($piFlexForm, "foot_email", "email");
+		$head_bill = tx_casreservation_pilib::bbCodeToHtml($this->pi_getFFvalue($piFlexForm, "head_bill", "bill")); // bb code is [] instead of <> : some backends suppress <> automatically
+		$line_bill = tx_casreservation_pilib::bbCodeToHtml($this->pi_getFFvalue($piFlexForm, "line_bill", "bill"));
+		$foot_bill = tx_casreservation_pilib::bbCodeToHtml($this->pi_getFFvalue($piFlexForm, "foot_bill", "bill"));
+		$head_email = tx_casreservation_pilib::bbCodeToHtml($this->pi_getFFvalue($piFlexForm, "head_email", "email"));
+		$line_email = tx_casreservation_pilib::bbCodeToHtml($this->pi_getFFvalue($piFlexForm, "line_email", "email"));
+		$foot_email = tx_casreservation_pilib::bbCodeToHtml($this->pi_getFFvalue($piFlexForm, "foot_email", "email"));
 
 		while($row = $GLOBALS['TYPO3_DB']->sql_fetch_row($result)){
 			list($id, $name, $label, $address, $npa, $location, $tel ,$email, $id_reserv, $room, $date_reserv, $time_reserv, $room_name, $material, $statusA, $statusB,$price) = $row;

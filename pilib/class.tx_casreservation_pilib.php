@@ -511,6 +511,13 @@ static function displayCosts($room)
 	return $content;
 }
 
+//========================================================================
+//	Change [] to <>
+//========================================================================
+static function bbCodeToHtml($str1)
+{
+	return str_replace(']', '>', str_replace( '[', '<', $str1));
+}
 }
 
 

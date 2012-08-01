@@ -1,1 +1,1 @@
-Votre demande de réservation du ###DATE### de ###TIME### (Salle '###ROOM_LABEL###' ###MATERIAL###) est passé au statut : ###STATUS###<br />###CODE###<br />
+Votre demande de réservation du ###DATE### de ###TIME### (Salle '###ROOM_LABEL###' ###MATERIAL###) est passé au statut : ###STATUS###[br /]###CODE###[br /]
