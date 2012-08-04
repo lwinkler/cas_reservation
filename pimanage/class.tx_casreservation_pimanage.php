@@ -349,13 +349,15 @@ class tx_casreservation_pimanage extends tslib_pibase {
 				list($conflict)=$GLOBALS['TYPO3_DB']->sql_fetch_row($result2);
 				$GLOBALS['TYPO3_DB']->sql_free_result($result2);
 
-				if($status>=2)
+				if($status==3) // Price is editable only at payment
 				{
 					// Get number of periods rented on the same day
 					$result2 = $GLOBALS['TYPO3_DB']->exec_SELECTquery('count(*)',
 						'tx_casreservation_reservation ',
 						'room='.intval($room).' and date_reserv='.$GLOBALS['TYPO3_DB']->fullQuoteStr($date_reserv, 'tx_casreservation_reservation').
-						' AND material='.intval($material).' AND member_id='.intval($member_id).' AND status>=2 and room IN('.implode(',',$this->rooms).')',
+						' AND material='.intval($material).' AND member_id='.intval($member_id).
+						' AND label='.$GLOBALS['TYPO3_DB']->fullQuoteStr($label, 'tx_casreservation_reservation').
+						' AND status>=2 and room='.intval($room), // and room IN('.implode(',',$this->rooms).')'
 						'room,date_reserv,member_id,material')
 						or die('Error, query failed. line '.__LINE__ . $GLOBALS['TYPO3_DB']->sql_error());
 					list($nb_periods) = $GLOBALS['TYPO3_DB']->sql_fetch_row($result2);
@@ -652,10 +654,6 @@ class tx_casreservation_pimanage extends tslib_pibase {
 //========================================================================
 	function head_bill($text,$name,$address,$npa,$location,$tel,$email)
 	{
-		//$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/head_bill_room'.$this->rooms[0].'.txt';
-		//$fh = fopen($myFile, 'r');
-		//$text =  fread($fh, 1000);
-		//fclose($fh);
 		if($text == '') return "Error : cannot read bill header";
 
 		$text = str_replace("###NAME###", $name, $text);
@@ -670,10 +668,6 @@ class tx_casreservation_pimanage extends tslib_pibase {
 //========================================================================
 	function line_bill($text,$room_label, $date_reserv,$time_reserv,$label,$material,$price)
 	{
-		//$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/line_bill_room'.$this->rooms[0].'.txt';
-		//$fh = fopen($myFile, 'r');
-		//$text = fread($fh, 1000);
-		//fclose($fh);
 		if($text == '') return "Error : cannot read file bill line";
 
 		if($material)$strmaterial='avec'; else $strmaterial='sans';
@@ -692,10 +686,6 @@ class tx_casreservation_pimanage extends tslib_pibase {
 //========================================================================
 	function foot_bill($text,$total,$date_reserv)
 	{
-		//$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/foot_bill_room'.$this->rooms[0].'.txt';
-		//$fh = fopen($myFile, 'r');
-		//$text = fread($fh, 1000);
-		//fclose($fh);
 		if($text == '') return "Error : cannot read file bill footer";
 
 		$text = str_replace("###TOTAL###", $total, $text);
@@ -708,11 +698,6 @@ class tx_casreservation_pimanage extends tslib_pibase {
 //========================================================================
 	function head_mail($text)
 	{
-		// Read data from text file
-		//$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/head_mail_room'.$this->rooms[0].'.txt';
-		//$fh = fopen($myFile, 'r');
-		//$text = fread($fh, 1000);
-		//fclose($fh);
 		if($text == '') return "Error : cannot read e-mail header";
 		return '<html>'.$text;
 	}
@@ -721,12 +706,6 @@ class tx_casreservation_pimanage extends tslib_pibase {
 //========================================================================
 	function line_mail($text, $room, $room_label, $date_reserv, $time_reserv, $label, $material, $status)
 	{
-		// Read data from text file
-		//$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/line_mail_room'.$this->rooms[0].'.txt';
-		//$fh = fopen($myFile, 'r');
-		//$text = fread($fh, 1000);
-		//fclose($fh);
-		
 		if($status==2){
 			//Recuperation du code de la semaine
 			$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery('code',
@@ -766,11 +745,6 @@ class tx_casreservation_pimanage extends tslib_pibase {
 //========================================================================
 	function foot_mail($text)
 	{
-		// Read data from text file
-		//$myFile = t3lib_extMgm::extPath('cas_reservation').'pimanage/foot_mail_room'.$this->rooms[0].'.txt';
-		//$fh = fopen($myFile, 'r');
-		//$text = fread($fh, 1000);
-		//fclose($fh);
 		if($text == '') return "Error : cannot read mail footer";
 		return $text.'</html>';
 	}
@@ -823,7 +797,8 @@ class tx_casreservation_pimanage extends tslib_pibase {
 			' JOIN tx_casreservation_reservation ON tx_casreservation_reservation.id=reservation_id '.
 			' JOIN fe_users ON member_id=fe_users.uid'.
 			' JOIN tx_casreservation_room ON tx_casreservation_room.id=room',
-			' room IN('.implode(',',$this->rooms).')','')
+			' room IN('.implode(',',$this->rooms).')',
+			'')
 			or die('Error, query failed. line '.__LINE__ . $GLOBALS['TYPO3_DB']->sql_error());
 		$bill='';
 		$bill_line='';

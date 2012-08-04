@@ -119,7 +119,7 @@ static function explainDate($str,$label,$no,$status,$editable,$plugin)
 
 static function explainPaid($str, $default, $no, $status, $editable, $plugin)
 {
-	if($editable&&($status==3 || $status ==2)) // show amount for billing and marking as paid
+	if($editable&& $status==3) // show amount for billing and marking as paid
 		return '
 <input name="'.$plugin->prefixId.'[paid-'.$no.']" type="text" size="4" maxlength="8" value="'.sprintf("%0.2f",$default).'"/>
 ';
@@ -471,7 +471,6 @@ static function displayCosts($room)
 	$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery("price, material","tx_casreservation_costs","nb_periods<=3 and room=".$room, '',"nb_periods, material") 
 		or die('Error, query failed. line '.__LINE__ ." ".$GLOBALS['TYPO3_DB']->sql_error());
 
-
 	$i=0;
 	$mat=0;
 	while($row = $GLOBALS['TYPO3_DB']->sql_fetch_row($result))
@@ -479,26 +478,26 @@ static function displayCosts($room)
 		list($costs[$i],$mat) = $row;
 		$i++;
 	}
-	$material=$mat;
+	$dim=$mat+1;
 
 	$content.='<br />
 <table class="costs" cellpadding="2" cellspacing="0">
 <tr class="header">
 <th> &nbsp; </th>
 ';
-	if($material > 0) 
+	if($dim > 1) 
 		$content.= '<th>' . $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:material0') . '</th><th>' . $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:material1') . '</th>';
 	else
 		$content.= '<th> &nbsp; </th>';
 	$content.= '</tr>
 ';
-	for($i=1; $i<=3; $i++)
+	for($i=0; $i<3; $i++)
 	{
 		//$costs[i]=array(2);
 		$content.='<tr><td>'.$i. $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:time_periods') . '</td>';
-		for($j=0; $j<=$material; $j++)
+		for($j=0; $j<$dim; $j++)
 		{
-			$content.= '<td>'.tx_casreservation_pilib::formatFranc($costs[$i * $material + $j]).'</td>';
+			$content.= '<td>'.tx_casreservation_pilib::formatFranc($costs[$i * $dim + $j]).'</td>';
 		}
 		$content.= '</tr>';
 	}
