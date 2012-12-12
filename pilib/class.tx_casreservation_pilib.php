@@ -347,7 +347,7 @@ static function displayGrid($room, $dateLundi, $booking, $delaymin, $delaymax, $
 			}
 			else{
 				switch ($type){
-				case "1":$content.= "  <td class=\"abo\">Abonnement</td>\n";
+				case "1":$content.= "  <td class=\"abo\">Public-Abo</td>\n"; // TODO: Add this to the language file
 				break;
 				//case "2":echo "  <td class=\"uni\">Universit&eacute;</td>\n";
 				//break;
