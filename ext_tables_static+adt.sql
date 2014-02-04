@@ -157,17 +157,17 @@ INSERT INTO tx_casreservation_codes VALUES(52,1,12345);
 # Utiliser pour remplir la grille de couts de location
 
 # mur de grimpe
-INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(1,1,0, 62);
-INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(2,1,0,100);
-INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(3,1,0,140);
+INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(1,1,0, 70);
+INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(2,1,0,110);
+INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(3,1,0,155);
 INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(4,1,0,202);
 INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(5,1,0,240);
 INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(6,1,0,280);
 INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(7,1,0,280);
 
-INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(1,1,1, 80);
-INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(2,1,1,130);
-INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(3,1,1,180);
+INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(1,1,1, 90);
+INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(2,1,1,140);
+INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(3,1,1,200);
 INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(4,1,1,260);
 INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(5,1,1,310);
 INSERT INTO tx_casreservation_costs (nb_periods, room, material, price) VALUES(6,1,1,360);
