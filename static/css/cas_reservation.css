@@ -22,23 +22,31 @@
 }
 
 #booking table{
-		background:#000000;
-		color:#ffffff;
-		border:#ecc400 solid 1px;
+	border:#ecc400 solid 1px;
 }
+
+/* Added this class to force my checkbox/radio to be visible. Of course this could be made cleaner */
+input[type="checkbox"], input[type="radio"] {
+	visibility: visible !important;
+	display: inline !important;
+	position: static !important;
+}
+.force_visible {
+	visibility: visible !important;
+	display: inline !important;
+	position: static !important;
+}
+
 
 #form_data table{
         font-size:100%;
-        background-color:#000000;
-		color:#FFFFFF;
-		border:#ecc400 solid 1px;
+	border:#ecc400 solid 1px;
 }
 #form_data h2{
         font-size:100%;
-        color:#FFFFFF;
 }
 #help {
-		color:#FFFFFF;
+	color:#FFFFFF;
         font-size:70%;
         background-color:#0033FF;
 }

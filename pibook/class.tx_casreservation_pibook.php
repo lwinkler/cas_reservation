@@ -239,7 +239,7 @@ class tx_casreservation_pibook extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
 	if($GLOBALS['TYPO3_DB']->sql_num_rows($result) > 1)
 		$content.='<td>Matériel</td>
-<td><input type="radio" name="tx_casreservation_pibook[material]" value="1" checked /> Oui <input type="radio" name="tx_casreservation_pibook[material]" value="0" /> Non </td>
+<td><input type="radio" name="tx_casreservation_pibook[material]" class="force_visible" value="1" checked /> Oui <input type="radio" name="tx_casreservation_pibook[material]" class="force_visible" value="0" /> Non </td>
 ';
 	$GLOBALS['TYPO3_DB']->sql_free_result($result);
 

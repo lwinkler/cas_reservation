@@ -196,7 +196,7 @@ class tx_casreservation_pimanage extends \TYPO3\CMS\Frontend\Plugin\AbstractPlug
 		else
 			$markerArray['###DISPLAY_COSTS###'] = $this->pi_getLL('display_fare_error');
 
-		$markerArray['###FILTER_PAST###'] = '<input type="checkbox" name="tx_casreservation_pimanage[past]" onclick="this.form.submit();" ' . ($condPast ? 'checked="checked"' : '') . ' />' . $this->pi_getLL('filter_past_label');
+		$markerArray['###FILTER_PAST###'] = '<input type="checkbox" class="force_visible" name="tx_casreservation_pimanage[past]" onclick="this.form.submit();" ' . ($condPast ? 'checked="checked"' : '') . ' />' . $this->pi_getLL('filter_past_label');
 		$markerArray['###FILTER_ROOM###'] = tx_casreservation_pilib::displaySelectRoom($this->rooms, $this, true);
 		$markerArray['###TITLE_FILTER###'] = $this->pi_getLL('title_filter');
 		$markerArray['###TITLE_FARE###']   = $this->pi_getLL('title_fare');
@@ -258,12 +258,12 @@ class tx_casreservation_pimanage extends \TYPO3\CMS\Frontend\Plugin\AbstractPlug
 		}
 		$content.= '<br/><br/>
 
-<input type="radio" name="'.$this->prefixId.'[status]" onclick="this.form.submit();" value="5" '.($condStatus=="5"?'checked="checked"':'').' /><font>' . $this->pi_getLL('all_demands') .'</font><br/>
-<input type="radio" name="'.$this->prefixId.'[status]" onclick="this.form.submit();" value="0" '.($condStatus=="0"?'checked="checked"':'').' /><font class="'.($cpt[0]==0 ? "grayed" : "stat0").'">' . $this->pi_getLL('demands0') .' ('.$cpt[0].')</font><br/>
-<input type="radio" name="'.$this->prefixId.'[status]" onclick="this.form.submit();" value="1" '.($condStatus=="1"?'checked="checked"':'').' /><font class="'.($cpt[1]==0 ? "grayed" : "stat1").'">' . $this->pi_getLL('demands1') .' ('.$cpt[1].')</font><br/>
-<input type="radio" name="'.$this->prefixId.'[status]" onclick="this.form.submit();" value="2" '.($condStatus=="2"?'checked="checked"':'').' /><font class="'.($cpt[2]==0 ? "grayed" : "stat2").'">' . $this->pi_getLL('demands2') .' ('.$cpt[2].')</font><br/>
-<input type="radio" name="'.$this->prefixId.'[status]" onclick="this.form.submit();" value="3" '.($condStatus=="3"?'checked="checked"':'').' /><font class="'.($cpt[3]==0 ? "grayed" : "stat3").'">' . $this->pi_getLL('demands3') .' ('.$cpt[3].')</font><br/>
-<input type="radio" name="'.$this->prefixId.'[status]" onclick="this.form.submit();" value="4" '.($condStatus=="4"?'checked="checked"':'').' /><font class="'.($cpt[4]==0 ? "grayed" : "stat4").'">' . $this->pi_getLL('demands4') .' ('.$cpt[4].')</font><br/>';
+<input type="radio" class="force_visible" name="'.$this->prefixId.'[status]" onclick="this.form.submit();" value="5" '.($condStatus=="5"?'checked="checked"':'').' /><font>' . $this->pi_getLL('all_demands') .'</font><br/>
+<input type="radio" class="force_visible" name="'.$this->prefixId.'[status]" onclick="this.form.submit();" value="0" '.($condStatus=="0"?'checked="checked"':'').' /><font class="'.($cpt[0]==0 ? "grayed" : "stat0").'">' . $this->pi_getLL('demands0') .' ('.$cpt[0].')</font><br/>
+<input type="radio" class="force_visible" name="'.$this->prefixId.'[status]" onclick="this.form.submit();" value="1" '.($condStatus=="1"?'checked="checked"':'').' /><font class="'.($cpt[1]==0 ? "grayed" : "stat1").'">' . $this->pi_getLL('demands1') .' ('.$cpt[1].')</font><br/>
+<input type="radio" class="force_visible" name="'.$this->prefixId.'[status]" onclick="this.form.submit();" value="2" '.($condStatus=="2"?'checked="checked"':'').' /><font class="'.($cpt[2]==0 ? "grayed" : "stat2").'">' . $this->pi_getLL('demands2') .' ('.$cpt[2].')</font><br/>
+<input type="radio" class="force_visible" name="'.$this->prefixId.'[status]" onclick="this.form.submit();" value="3" '.($condStatus=="3"?'checked="checked"':'').' /><font class="'.($cpt[3]==0 ? "grayed" : "stat3").'">' . $this->pi_getLL('demands3') .' ('.$cpt[3].')</font><br/>
+<input type="radio" class="force_visible" name="'.$this->prefixId.'[status]" onclick="this.form.submit();" value="4" '.($condStatus=="4"?'checked="checked"':'').' /><font class="'.($cpt[4]==0 ? "grayed" : "stat4").'">' . $this->pi_getLL('demands4') .' ('.$cpt[4].')</font><br/>';
 
 		return $content;
 	}
@@ -378,7 +378,7 @@ class tx_casreservation_pimanage extends \TYPO3\CMS\Frontend\Plugin\AbstractPlug
 				else $login2='';
 				$content.='
  <tr class="'.($conflict>1 ? "conflict" :"line".($cc%2)).'">
-  <td class="statb'.$status.'">'.'<input type="checkbox" name="'.$this->prefixId.'[cb-'.$id.']"/>'.' </td>
+  <td class="statb'.$status.'">'.'<input type="checkbox" class="force_visible"  name="'.$this->prefixId.'[cb-'.$id.']"/>'.' </td>
   <td>'.$room.'</td>
   '.$login2.'
   <td>'.$label.'</td>
@@ -412,10 +412,10 @@ class tx_casreservation_pimanage extends \TYPO3\CMS\Frontend\Plugin\AbstractPlug
 		$content = '<table>';
 
 		if($this->isAdmin){
-			$content.= '<tr><td> <input type="radio" id="'.$this->prefixId.'[change_0]" name="'.$this->prefixId.'[change]" value="confirm" checked="checked" />' . $this->pi_getLL('action_accept') . '</td></tr>'."\n";
-			$content.= '<tr><td> <input type="radio" id="'.$this->prefixId.'[change_1]" name="'.$this->prefixId.'[change]" value="cancel"/>' . $this->pi_getLL('action_cancel') . '</td></tr>'."\n";
-			$content.= '<tr><td> <input type="radio" id="'.$this->prefixId.'[change_2]" name="'.$this->prefixId.'[change]" value="bill"/>'   . $this->pi_getLL('action_bill') . '</td></tr>'."\n";
-			$content.= '<tr><td> <input type="radio" id="'.$this->prefixId.'[change_3]" name="'.$this->prefixId.'[change]" value="pay"/>'    . $this->pi_getLL('action_pay') . '</td></tr>'."\n";
+			$content.= '<tr><td> <input type="radio" class="force_visible" id="'.$this->prefixId.'[change_0]" name="'.$this->prefixId.'[change]" value="confirm" checked="checked" />' . $this->pi_getLL('action_accept') . '</td></tr>'."\n";
+			$content.= '<tr><td> <input type="radio" class="force_visible" id="'.$this->prefixId.'[change_1]" name="'.$this->prefixId.'[change]" value="cancel"/>' . $this->pi_getLL('action_cancel') . '</td></tr>'."\n";
+			$content.= '<tr><td> <input type="radio" class="force_visible" id="'.$this->prefixId.'[change_2]" name="'.$this->prefixId.'[change]" value="bill"/>'   . $this->pi_getLL('action_bill') . '</td></tr>'."\n";
+			$content.= '<tr><td> <input type="radio" class="force_visible" id="'.$this->prefixId.'[change_3]" name="'.$this->prefixId.'[change]" value="pay"/>'    . $this->pi_getLL('action_pay') . '</td></tr>'."\n";
 		}else{
 			$content.= '<input type="hidden" name="'.$this->prefixId.'[change]" value="cancel" checked="checked" />'."\n";
 		}

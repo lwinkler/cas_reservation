@@ -38,9 +38,18 @@ plugin.tx_casreservation_pidisplay {
 }
 
 #booking table{
-	background:#000000;
-	color:#ffffff;
 	border:#ecc400 solid 1px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+	visibility: visible !important;
+	display: inline !important;
+	position: static !important;
+}
+.force_visible {
+	visibility: visible !important;
+	display: inline !important;
+	position: static !important;
 }
 
 #form_data table{

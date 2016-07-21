@@ -330,7 +330,7 @@ static function displayGrid($room, $dateLundi, $booking, $delaymin, $delaymax, $
 				if($occupation==""||$occupation=="0"){
 					if($booking && strtotime($dategrid)>=strtotime($delaymin,time())&&strtotime($dategrid)<strtotime($delaymax,time()))
 						$content.= "  <td class=\"free\">".
-						'<input type="checkbox" name="'.$plugin->prefixId.'[cb-'.$dategrid.'-'.$timegrid."]\"/>&nbsp;Libre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\n";
+						'<input type="checkbox" class="force_visible" name="'.$plugin->prefixId.'[cb-'.$dategrid.'-'.$timegrid."]\"/>&nbsp;Libre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\n";
 					else
 						$content.= "  <td class=\"free\">Libre</td>\n";
 				}
@@ -496,7 +496,7 @@ static function displayCosts($room)
 		$content.='<tr><td>'.$i. $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:time_periods') . '</td>';
 		for($j=0; $j<=$material; $j++)
 		{
-			$content.= '<td>'.tx_casreservation_pilib::formatFranc($costs[$i * $material + $j]).'</td>';
+			$content.= '<td>'.tx_casreservation_pilib::formatFranc($costs[($i - 1) * 2 + $j * $material]).'</td>';
 		}
 		$content.= '</tr>';
 	}
