@@ -27,9 +27,7 @@
  * Hint: use extdeveval to insert/update function index above.
  */
 
-require_once(PATH_tslib.'class.tslib_pibase.php');
-require_once(PATH_t3lib.'class.t3lib_htmlmail.php');
-require_once(t3lib_extMgm::extPath('cas_reservation').'pilib/class.tx_casreservation_pilib.php'); // Extension library
+require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('cas_reservation').'pilib/class.tx_casreservation_pilib.php'); // Extension library
 
 /**
  * Plugin 'Create a new reservation' for the 'cas_reservation' extension.
@@ -38,15 +36,15 @@ require_once(t3lib_extMgm::extPath('cas_reservation').'pilib/class.tx_casreserva
  * @package	TYPO3
  * @subpackage	tx_casreservation
  */
-class tx_casreservation_pibook extends tslib_pibase {
+class tx_casreservation_pibook extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 	var $prefixId      = 'tx_casreservation_pibook';		// Same as class name
 	var $scriptRelPath = 'pibook/class.tx_casreservation_pibook.php';	// Path to this script relative to the extension dir.
 	var $extKey        = 'cas_reservation';	// The extension key.
-	var $pi_checkCHash = true;
-	
+	var $pi_checkCHash = false;
+
 	var $delaymin = "+7 day"; // Delay min and max to make a reservation (change if admin)
 	var $delaymax = "+52 weeks";
-	
+
 	// the following values are imported from flexform
 	var $admin = ""; // Nb of admin group
 	var $rooms= array(); // Room to manage in this plugin
@@ -91,7 +89,7 @@ class tx_casreservation_pibook extends tslib_pibase {
 		if( $dateSelectedMonday == '' || strtotime($dateSelectedMonday) < strtotime($this->delaymin, strtotime($dateThisMonday))
 				|| strtotime($dateSelectedMonday) > strtotime($this->delaymax, strtotime($dateThisMonday)))
 			$dateSelectedMonday = $dateThisMonday;
-			
+
 		$room='';
 		if(isset($this->piVars['room'])) $room = htmlspecialchars($this->piVars['room']);
 		if($room=='' || count($this->rooms)==1){
@@ -103,16 +101,16 @@ class tx_casreservation_pibook extends tslib_pibase {
 
 		/// Initializations
 
-		if(isset($this->piVars['submit_button'])) { 
+		if(isset($this->piVars['submit_button'])) {
 			$content=$this->book();
 			return $this->pi_wrapInBaseClass($content);
 		}
-		
+
 		//$label=tx_casreservation_pilib::getGroupName();
-		
+
 		// Get template
 		$this->templateCode = $this->cObj->fileResource($conf['templateFile']);
-		
+
 		// Get the parts out of the template
 		$template['total'] = $this->cObj->getSubpart($this->templateCode,'###TEMPLATE###');
 
@@ -193,7 +191,7 @@ class tx_casreservation_pibook extends tslib_pibase {
 			}
 			$msg_arr[] = "$cpt demandes traitées.";
 			$msgflag = true;
-		
+
 			// Envoie le mail
 			if($cpt > 0)
 			{

@@ -27,8 +27,6 @@
  * Hint: use extdeveval to insert/update function index above.
  */
 
-require_once(PATH_tslib.'class.tslib_pibase.php');
-
 
 /**
  * Plugin 'Static library Class' for the 'cas_reservation' extension.
@@ -37,12 +35,12 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
  * @package	TYPO3
  * @subpackage	tx_casreservation
  */
-class tx_casreservation_pilib extends tslib_pibase {
+class tx_casreservation_pilib extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 	var $prefixId      = 'tx_casreservation_pilib';		// Same as class name
 	var $scriptRelPath = 'pilib/class.tx_casreservation_pilib.php';	// Path to this script relative to the extension dir.
 	var $extKey        = 'cas_reservation';	// The extension key.
-	var $pi_checkCHash = true;
-	
+	var $pi_checkCHash = false;
+
 //========================================================================
 // Imprime l'aide
 //========================================================================
@@ -62,7 +60,7 @@ function print_msg()
 	if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
 		$content.= '<ul class="err">';
 		foreach($_SESSION['ERRMSG_ARR'] as $msg) {
-			$content.= '<p>'.$msg.'</p>';//'<li>'.$msg.'</li>'; 
+			$content.= '<p>'.$msg.'</p>';//'<li>'.$msg.'</li>';
 		}
 		$content.= '</ul>';
 		unset($_SESSION['ERRMSG_ARR']);
@@ -71,7 +69,7 @@ function print_msg()
 	if( isset($_SESSION['MSG_ARR']) && is_array($_SESSION['MSG_ARR']) && count($_SESSION['MSG_ARR']) >0 ) {
 		$content.= '<ul class="msg">';
 		foreach($_SESSION['MSG_ARR'] as $msg) {
-			$content.= '<p>'.$msg.'</p>';//'<li>'.$msg.'</li>'; 
+			$content.= '<p>'.$msg.'</p>';//'<li>'.$msg.'</li>';
 		}
 		$content.= '</ul>';
 		unset($_SESSION['MSG_ARR']);
@@ -119,7 +117,7 @@ static function explainDate($str,$label,$no,$status,$editable,$plugin)
 
 static function explainPaid($str, $default, $no, $status, $editable, $plugin)
 {
-	if($editable&& $status==3) // show amount for billing and marking as paid
+	if($editable&&($status==3 || $status ==2)) // show amount for billing and marking as paid
 		return '
 <input name="'.$plugin->prefixId.'[paid-'.$no.']" type="text" size="4" maxlength="8" value="'.sprintf("%0.2f",$default).'"/>
 ';
@@ -193,8 +191,8 @@ static function getDate()
 	if($month < 10) $month = "0".$month;
 	return sprintf($GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:format_date'),
 		date("Y"),
-		$GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:month' . $month), 
-		date("d"), 
+		$GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:month' . $month),
+		date("d"),
 		$GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:weekday' . date("w")));
 }
 //========================================================================
@@ -206,7 +204,7 @@ $content='';
 if($uid!=''){
 	$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery('username, name, address, zip, city, telephone, email',
 		'fe_users',
-		'uid='.$GLOBALS['TYPO3_DB']->fullQuoteStr($uid, 'fe_users'), '') 
+		'uid='.$GLOBALS['TYPO3_DB']->fullQuoteStr($uid, 'fe_users'), '')
 		or die('Error, query failed. line '.__LINE__ . $GLOBALS['TYPO3_DB']->sql_error());
 	$row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($result);
 	// if the guestbook is empty show a message
@@ -216,7 +214,7 @@ if($uid!=''){
 	}
 	else{
 		$content.=
-'<table> 
+'<table>
 <tr>
  <td><b>' . $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:login').'</b></td><td>'.$row['username'].'</td>
 </tr>
@@ -250,7 +248,7 @@ static function getMonday()
 if(date("l") == "Monday")
 return date("Y-m-d"); // if today if monday, just give today's date
 else
-return date("Y-m-d", strtotime("last monday")); 
+return date("Y-m-d", strtotime("last monday"));
 }
 //========================================================================
 //	No de la semaine dans l'annee
@@ -267,12 +265,12 @@ static function displayGrid($room, $dateLundi, $booking, $delaymin, $delaymax, $
 	$content="";
 	// prepare the query string
 	$date_end = date("Y-m-d", strtotime("+7 day",strtotime($dateLundi)));
-	$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery('room_grid, weekday_grid, time_grid, type_grid, label_grid', 
+	$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery('room_grid, weekday_grid, time_grid, type_grid, label_grid',
 		' tx_casreservation_grid ',
 		' room_grid='.$GLOBALS['TYPO3_DB']->fullQuoteStr($room, 'tx_casreservation_grid'), // WHERE
 		'', // GROUP BY
 		'time_grid,weekday_grid', // ORDER BY
-		"")or die('Error, query failed. line '.__LINE__ ." ".$GLOBALS['TYPO3_DB']->sql_error()); // LIMIT 
+		"")or die('Error, query failed. line '.__LINE__ ." ".$GLOBALS['TYPO3_DB']->sql_error()); // LIMIT
 	if($GLOBALS['TYPO3_DB']->sql_num_rows($result) == 0||date("D", strtotime($dateLundi) )!="Mon")
 	{
 		$content.='<p><br />
@@ -305,17 +303,17 @@ static function displayGrid($room, $dateLundi, $booking, $delaymin, $delaymax, $
 			$dategrid=date("Y-m-d", strtotime("+".($weekday-1)." day",strtotime($dateLundi)));
 
 			// Get occupation and label
-			$result2 = $GLOBALS['TYPO3_DB']->exec_SELECTquery('status, label', 'tx_casreservation_reservation', 
+			$result2 = $GLOBALS['TYPO3_DB']->exec_SELECTquery('status, label', 'tx_casreservation_reservation',
 				'room='.$GLOBALS['TYPO3_DB']->fullQuoteStr($room,'tx_casreservation_reservation').
 				' and date_reserv='.$GLOBALS['TYPO3_DB']->fullQuoteStr($dategrid,'tx_casreservation_reservation').
-				' and time_reserv='.$GLOBALS['TYPO3_DB']->fullQuoteStr($timegrid,'tx_casreservation_reservation'), 
+				' and time_reserv='.$GLOBALS['TYPO3_DB']->fullQuoteStr($timegrid,'tx_casreservation_reservation'),
 				'', "status DESC", "1")
 				or die('Error, query failed. line '.__LINE__ ." ".$GLOBALS['TYPO3_DB']->sql_error());
 			list($occupation, $label) = $GLOBALS['TYPO3_DB']->sql_fetch_row($result2);
 			$GLOBALS['TYPO3_DB']->sql_free_result($result2);
 
 			// Get result from special dates if any
-			$result2 = $GLOBALS['TYPO3_DB']->exec_SELECTquery('type_special', 'tx_casreservation_dates_special', 
+			$result2 = $GLOBALS['TYPO3_DB']->exec_SELECTquery('type_special', 'tx_casreservation_dates_special',
 				'room_special='.$GLOBALS['TYPO3_DB']->fullQuoteStr($room,'tx_casreservation_dates_special').
 				' and date_special='.$GLOBALS['TYPO3_DB']->fullQuoteStr($dategrid,'tx_casreservation_dates_special').
 				' and time_special='.$GLOBALS['TYPO3_DB']->fullQuoteStr($timegrid,'tx_casreservation_dates_special'),
@@ -327,8 +325,8 @@ static function displayGrid($room, $dateLundi, $booking, $delaymin, $delaymax, $
 			if($type=="0"){
 				/*if($dategroup=="")
 					$content.= "  <td class=\"abo\">Abonnement</td>\n";
-				else*/ 
-				
+				else*/
+
 				if($occupation==""||$occupation=="0"){
 					if($booking && strtotime($dategrid)>=strtotime($delaymin,time())&&strtotime($dategrid)<strtotime($delaymax,time()))
 						$content.= "  <td class=\"free\">".
@@ -342,12 +340,12 @@ static function displayGrid($room, $dateLundi, $booking, $delaymin, $delaymax, $
 					if (substr_count($label,"UniSport"))$style="uni";
 					else $style="occupied";
 					$content.= "  <td class=\"$style\">$label</td>\n";
-				}else 
+				}else
 					$content.= "  <td>Erreur:$occupation</td>\n";
 			}
 			else{
 				switch ($type){
-				case "1":$content.= "  <td class=\"abo\">Public-Abo</td>\n"; // TODO: Add this to the language file
+				case "1":$content.= "  <td class=\"abo\">Abonnement</td>\n";
 				break;
 				//case "2":echo "  <td class=\"uni\">Universit&eacute;</td>\n";
 				//break;
@@ -397,13 +395,13 @@ static function displaySelectMonday($delaymin, $delaymax, $plugin, $date1, $room
 	{
 		$content.= '<option value="' . date("Y-m-d",$dateLu) . '"';
 		if($dateLu == $dateLundi) $content.="selected=\"selected\"";
-		$content.='>' . $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:weekday1') . ' '.date($GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:format_date_php'), $dateLu)."</option>\n"; 
+		$content.='>' . $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:weekday1') . ' '.date($GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:format_date_php'), $dateLu)."</option>\n";
 		$dateLu=strtotime("+7 day",$dateLu);
 	} // end while
 	$content.='</select>';
 
 	$content.=$plugin->pi_linkToPage(' &gt;&gt;', $GLOBALS['TSFE']->id, '', array($plugin->prefixId."[week]"=>$dateNext, $plugin->prefixId."[room]"=>$room));
-	
+
 	return $content;
 }
 //========================================================================
@@ -413,13 +411,13 @@ static function displaySelectRoom($rooms, $plugin, $allrooms=false)
 {
 	$content='';
 	$selected='';
-	
+
 	$room_name = array();
-	$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery("id, room_name", "tx_casreservation_room", '') 
+	$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery("id, room_name", "tx_casreservation_room", '')
 		or die('Error, query failed. line '.__LINE__ ." ".$GLOBALS['TYPO3_DB']->sql_error());
 	while($row = $GLOBALS['TYPO3_DB']->sql_fetch_row($result)){
 		list($id, $name) = $row;
-		$room_name["'".$id."'"]= $name; 
+		$room_name["'".$id."'"]= $name;
 	}
 	$GLOBALS['TYPO3_DB']->sql_free_result($result);
 
@@ -435,15 +433,15 @@ static function displaySelectRoom($rooms, $plugin, $allrooms=false)
 	if($allrooms){
 		$content.="<option value=\"0\"";
 		if($selected=='0') $content.="selected=\"selected\"";
-		$content.=">Toutes les salles</option>\n"; 
+		$content.=">Toutes les salles</option>\n";
 	}
 	foreach ($rooms as $room) {
 		$content.="<option value=\"$room\"";
 		if($room==$selected) $content.="selected=\"selected\"";
-		$content.=">".$room_name["'".$room."'"]."</option>\n"; 
+		$content.=">".$room_name["'".$room."'"]."</option>\n";
 	} // end while
 	$content.='</select>';
-	
+
 	return $content;
 }
 //========================================================================
@@ -453,12 +451,12 @@ static function displaySelectRoom($rooms, $plugin, $allrooms=false)
 //{
 	// Trouver le nom du groupe
 	/*$sessionid=1; // HACK : $_SESSION['SESS_MEMBER_ID']
-	$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery("label", "tx_casreservation_members","member_id='".$sessionid."' ","","","1") 
+	$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery("label", "tx_casreservation_members","member_id='".$sessionid."' ","","","1")
 		or die('Error, query failed. line '.__LINE__ ." ".$GLOBALS['TYPO3_DB']->sql_error());
 	if($row = $GLOBALS['TYPO3_DB']->sql_fetch_row($result))
 		list($label) = $row;
 */
-//	return "";//$label; FIXME 
+//	return "";//$label; FIXME
 //}
 //========================================================================
 //	Affiche le tableau des couts
@@ -468,8 +466,9 @@ static function displayCosts($room)
 	if($room == '') return 'Error, room not set.';
 	$content='';
 	$costs=array();
-	$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery("price, material","tx_casreservation_costs","nb_periods<=3 and room=".$room, '',"nb_periods, material") 
+	$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery("price, material","tx_casreservation_costs","nb_periods<=3 and room=".$room, '',"nb_periods, material")
 		or die('Error, query failed. line '.__LINE__ ." ".$GLOBALS['TYPO3_DB']->sql_error());
+
 
 	$i=0;
 	$mat=0;
@@ -478,26 +477,26 @@ static function displayCosts($room)
 		list($costs[$i],$mat) = $row;
 		$i++;
 	}
-	$dim=$mat+1;
+	$material=$mat;
 
 	$content.='<br />
 <table class="costs" cellpadding="2" cellspacing="0">
 <tr class="header">
 <th> &nbsp; </th>
 ';
-	if($dim > 1) 
+	if($material > 0)
 		$content.= '<th>' . $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:material0') . '</th><th>' . $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:material1') . '</th>';
 	else
 		$content.= '<th> &nbsp; </th>';
 	$content.= '</tr>
 ';
-	for($i=0; $i<3; $i++)
+	for($i=1; $i<=3; $i++)
 	{
 		//$costs[i]=array(2);
 		$content.='<tr><td>'.$i. $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:time_periods') . '</td>';
-		for($j=0; $j<$dim; $j++)
+		for($j=0; $j<=$material; $j++)
 		{
-			$content.= '<td>'.tx_casreservation_pilib::formatFranc($costs[$i * $dim + $j]).'</td>';
+			$content.= '<td>'.tx_casreservation_pilib::formatFranc($costs[$i * $material + $j]).'</td>';
 		}
 		$content.= '</tr>';
 	}

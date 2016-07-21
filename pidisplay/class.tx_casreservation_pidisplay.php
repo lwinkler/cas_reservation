@@ -28,8 +28,7 @@
  * Hint: use extdeveval to insert/update function index above.
  */
 
-require_once(PATH_tslib.'class.tslib_pibase.php');
-require_once(t3lib_extMgm::extPath('cas_reservation').'pilib/class.tx_casreservation_pilib.php'); // 
+require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('cas_reservation').'pilib/class.tx_casreservation_pilib.php'); //
 
 /**
  * Plugin 'Display reservations' for the 'cas_reservation' extension.
@@ -38,12 +37,12 @@ require_once(t3lib_extMgm::extPath('cas_reservation').'pilib/class.tx_casreserva
  * @package	TYPO3
  * @subpackage	tx_casreservation
  */
-class tx_casreservation_pidisplay extends tslib_pibase {
+class tx_casreservation_pidisplay extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 	var $prefixId      = 'tx_casreservation_pidisplay';		// Same as class name
 	var $scriptRelPath = 'pidisplay/class.tx_casreservation_pidisplay.php';	// Path to this script relative to the extension dir.
 	var $extKey        = 'cas_reservation';	// The extension key.
-	var $pi_checkCHash = true;
-	
+	var $pi_checkCHash = false;
+
 	// Delai min pour affichage
 	var $delaymin = "-6 day";
 	// Delai max pour affichage
@@ -82,7 +81,7 @@ class tx_casreservation_pidisplay extends tslib_pibase {
 		if( $dateSelectedMonday == '' || strtotime($dateSelectedMonday) < strtotime($this->delaymin, strtotime($dateThisMonday))
 				|| strtotime($dateSelectedMonday) > strtotime($this->delaymax, strtotime($dateThisMonday)))
 			$dateSelectedMonday = $dateThisMonday;
-			
+
 		$room='';
 		if(isset($this->piVars['room'])) $room = htmlspecialchars($this->piVars['room']);
 		if($room=='' || count($this->rooms)==1){
@@ -91,16 +90,16 @@ class tx_casreservation_pidisplay extends tslib_pibase {
 
 		// Get template
 		$this->templateCode = $this->cObj->fileResource($conf['templateFile']);
-		
+
 		// Get the parts out of the template
 		$template['total'] = $this->cObj->getSubpart($this->templateCode,'###TEMPLATE###');
-		
+
 		// Fill markers
 		$markerArray['###SELECT_WEEK###'] = tx_casreservation_pilib::displaySelectMonday($this->delaymin, $this->delaymax, $this, $dateSelectedMonday, $room);
 		$markerArray['###SELECT_ROOM###'] = tx_casreservation_pilib::displaySelectRoom($this->rooms, $this);
 		$markerArray['###DATE###'] = tx_casreservation_pilib::getDate();
 		$markerArray['###SHOW_PERIOD###'] = tx_casreservation_pilib::displayGrid($room, $dateSelectedMonday, false, $this->delaymin, $this->delaymax, $this);
-		
+
 		// Create the content by replacing the content markers in the template
 		$content = $this->cObj->substituteMarkerArrayCached($template['total'],$markerArray);
 
