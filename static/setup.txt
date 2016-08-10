@@ -41,11 +41,6 @@ plugin.tx_casreservation_pidisplay {
 	border:#ecc400 solid 1px;
 }
 
-input[type="checkbox"], input[type="radio"] {
-	visibility: visible !important;
-	display: inline !important;
-	position: static !important;
-}
 .force_visible {
 	visibility: visible !important;
 	display: inline !important;

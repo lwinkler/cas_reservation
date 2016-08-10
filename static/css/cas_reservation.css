@@ -26,11 +26,6 @@
 }
 
 /* Added this class to force my checkbox/radio to be visible. Of course this could be made cleaner */
-input[type="checkbox"], input[type="radio"] {
-	visibility: visible !important;
-	display: inline !important;
-	position: static !important;
-}
 .force_visible {
 	visibility: visible !important;
 	display: inline !important;
