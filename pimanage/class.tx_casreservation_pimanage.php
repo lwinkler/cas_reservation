@@ -303,7 +303,7 @@ class tx_casreservation_pimanage extends \TYPO3\CMS\Frontend\Plugin\AbstractPlug
 			$content.= '
 <table border="1" cellpadding="2" cellspacing="0">
  <tr class="header">
-  <th rowspan="2">&nbsp;<br/>&nbsp;<br/>&nbsp;</th>
+  <th rowspan="2"><button type="button" onclick="ToggleCheckboxes();">S</button></th>
   <th rowspan="2">' . $this->pi_getLL('room') . '</th>
   '.$label_user.'
   <th rowspan="2">' . $this->pi_getLL('label') . '</th>

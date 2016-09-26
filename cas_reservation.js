@@ -84,3 +84,10 @@ document.getElementById(id).style.display = 'block';
 function HideText(id) {
 document.getElementById(id).style.display = 'none';
 }
+
+/* Toggle all cb on reservation management page, button 'S' */
+function ToggleCheckboxes() {
+var cb = $("table>tbody>tr>td>input[type='checkbox']");
+cb.prop("checked", !cb.prop("checked"));
+}
+
