@@ -5,12 +5,12 @@
       `room` int(3) unsigned NOT NULL  default '0',
       `label` varchar(100) default '',
       `material` int(3) default '0',
-      `date_demand` date default '0000-00-00',
+      `date_demand` date default '1970-01-01',
       `time_demand` char(5)  default '',
-      `date_reserv` date default '0000-00-00',
+      `date_reserv` date default '1970-01-01',
       `time_reserv` int(11) default '0',
-      `date_bill` date default '0000-00-00',
-      `date_pay` date default '0000-00-00',
+      `date_bill` date default '1970-01-01',
+      `date_pay` date default '1970-01-01',
       `paid` float default '0',
       `status` int(11) default '0',
       `note` varchar(300)  default '',
@@ -25,7 +25,7 @@
 #--------
       CREATE TABLE `tx_casreservation_dates_special` (
       `room_special` int(3) unsigned NOT NULL  default '0',
-      `date_special` date NOT NULL default '0000-00-00',
+      `date_special` date NOT NULL default '1970-01-01',
       `time_special` int(11) NOT NULL default '0',
       `type_special` int(11) NOT NULL default '0',
       PRIMARY KEY (room_special,date_special,time_special)
