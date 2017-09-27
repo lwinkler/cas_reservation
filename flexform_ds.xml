@@ -34,6 +34,18 @@
 							</config>
 						</TCEforms>
 					</room>
+
+					<period_labels>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:cas_reservation/locallang_db.xml:tt_content.pi_flexform.period_labels</label>
+							<config>
+								<type>input</type>
+								<size>50</size>
+								<show_thumbs>1</show_thumbs>
+							</config>
+						</TCEforms>
+					</period_labels>
 					
 					<send_email>
 						<TCEforms>
@@ -49,7 +61,6 @@
 						<TCEforms>
 							<exclude>1</exclude>
 							<label>LLL:EXT:cas_reservation/locallang_db.xml:tt_content.pi_flexform.email_admin</label>
-							<!--<displayCond>FIELD:send_email:=:true</displayCond>-->
 							<config>
 								<type>input</type>
 								<size>50</size>

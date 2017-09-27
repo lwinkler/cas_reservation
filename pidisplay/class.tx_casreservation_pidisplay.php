@@ -71,6 +71,7 @@ class tx_casreservation_pidisplay extends \TYPO3\CMS\Frontend\Plugin\AbstractPlu
 		$piFlexForm = $this->cObj->data['pi_flexform'];
 		$this->admin = $this->pi_getFFvalue($piFlexForm, "admin", "sDEF");
 		$this->rooms = explode(',', $this->pi_getFFvalue($piFlexForm, "room", "sDEF"));
+		$this->period_labels = explode(',', $this->pi_getFFvalue($piFlexForm, "period_labels", "sDEF"));
 
 		// Get variables form parameters
 		$dateSelectedMonday = '';

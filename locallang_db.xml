@@ -18,7 +18,8 @@
 			<label index="tt_content.pi_flexform.show_errors">Show Errors</label>
 			<label index="tt_content.pi_flexform.prepend_text">Text to prepend errors with</label>
 			<label index="tt_content.pi_flexform.admin">Administrator group number</label>
-			<label index="tt_content.pi_flexform.room">Rooms to be rent (room numbers separated with a coma)</label>
+			<label index="tt_content.pi_flexform.room">Rooms to be rent (room numbers separated by a comma)</label>
+			<label index="tt_content.pi_flexform.period_labels">Labels of 7 daily periods, separated by a comma</label>			
 			<label index="tt_content.pi_flexform.send_email">Send e-mail notification</label>
 			<label index="tt_content.pi_flexform.email_admin">Email address to send notifications of new reservations</label>
 			<label index="tt_content.pi_flexform.head_email">Email header</label>
@@ -42,6 +43,7 @@
 			<label index="tt_content.pi_flexform.prepend_text">Text to prepend errors with</label>
 			<label index="tt_content.pi_flexform.admin">Numéro du groupe d'administrateurs</label>
 			<label index="tt_content.pi_flexform.room">Numéros des salles à louer (séparé par une virgule)</label>
+			<label index="tt_content.pi_flexform.period_labels">Labels des 7 périodes journalières, séparés par une virgule</label>			
 			<label index="tt_content.pi_flexform.send_email">Envoyer notifications par e-mail (0 ou 1)</label>
 			<label index="tt_content.pi_flexform.email_admin">Address e-mail pour l'envoi de notification de nouvelle réservation</label>			
 			<label index="tt_content.pi_flexform.head_email">Entête de l'e-mail</label>

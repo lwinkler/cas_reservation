@@ -74,6 +74,7 @@ class tx_casreservation_pibook extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 		$this->rooms = explode(',', $this->pi_getFFvalue($piFlexForm, "room", "sDEF"));
 		$this->email_admin = $this->pi_getFFvalue($piFlexForm, "email_admin", "sDEF");
 		$this->send_email = $this->pi_getFFvalue($piFlexForm, "send_email", "sDEF");
+		$this->period_labels = explode(',', $this->pi_getFFvalue($piFlexForm, "period_labels", "sDEF"));
 
 		$dateSelectedMonday = '';
 		$dateThisMonday = tx_casreservation_pilib::getMonday();

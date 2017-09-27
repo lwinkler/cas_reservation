@@ -158,12 +158,15 @@ static function explainWeekday($str)
 	return $GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:weekday_short'.$str);
 }
 
-static function explainTime($t1)
+static function explainTime($t1, $period_labels)
 {
-	$t2 = $t1 + 2; // TODO : this should be customizable
-	$str = '';
-	$str = sprintf($GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:format_times'), $t1, $t2);
-	return $str;
+	// $t2 = $t1 + 2; // TODO : this should be customizable
+	// $str = '';
+	// $str = sprintf($GLOBALS['TSFE']->sL('LLL:EXT:cas_reservation/pilib/locallang.xml:format_times'), $t1, $t2);
+	
+	// periods labels are stored in a config array
+	// note: for legacy reasons, the first period is 8
+	return $period_labels[($t1-8) / 2];
 }
 
 static function explainMonth($str)
@@ -295,7 +298,7 @@ static function displayGrid($room, $dateLundi, $booking, $delaymin, $delaymax, $
 
 		$p=8;
 		$i=0;
-		$content.= '<td>'. tx_casreservation_pilib::explainTime($p) . "</td>\n";
+		$content.= '<td>'. tx_casreservation_pilib::explainTime($p, $plugin->period_labels) . "</td>\n";
 
 		while($row = $GLOBALS['TYPO3_DB']->sql_fetch_row($result))
 		{
@@ -362,7 +365,7 @@ static function displayGrid($room, $dateLundi, $booking, $delaymin, $delaymax, $
 				$content.= "</tr>\n";
 				if($p<=20){
 					$content.= "<tr>\n";
-					$content.= "<td>". tx_casreservation_pilib::explainTime($p) ."</td>\n";
+					$content.= "<td>". tx_casreservation_pilib::explainTime($p, $plugin->period_labels) ."</td>\n";
 				}
 			}
 		}

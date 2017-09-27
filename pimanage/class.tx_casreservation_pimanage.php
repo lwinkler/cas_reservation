@@ -86,6 +86,7 @@ class tx_casreservation_pimanage extends \TYPO3\CMS\Frontend\Plugin\AbstractPlug
 		$this->rooms = explode(',', $this->pi_getFFvalue($piFlexForm, "room", "sDEF"));
 		$this->send_email = $this->pi_getFFvalue($piFlexForm, "send_email", "sDEF");
 		$this->isAdmin = tx_casreservation_pilib::isAdmin($this);
+		$this->period_labels = explode(',', $this->pi_getFFvalue($piFlexForm, "period_labels", "sDEF"));
 
 		// Get room names
 		$result = $GLOBALS['TYPO3_DB']->exec_SELECTquery('id, room_name',
@@ -383,7 +384,7 @@ class tx_casreservation_pimanage extends \TYPO3\CMS\Frontend\Plugin\AbstractPlug
   '.$login2.'
   <td>'.$label.'</td>
   <td>'.$date_reserv2.'</td>
-  <td>'.tx_casreservation_pilib::explainTime($time_reserv).'</td>
+  <td>'.tx_casreservation_pilib::explainTime($time_reserv, $plugin->period_labels).'</td>
   <td>'.tx_casreservation_pilib::explainBoolean($material).'</td>
   <td>'.$date_demand.'</td>
   <td>'.$time_demand.'</td>
